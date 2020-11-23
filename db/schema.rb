@@ -10,10 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_105936) do
+ActiveRecord::Schema.define(version: 2020_11_23_113451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "check_in"
+    t.date "check_out"
+    t.string "confirmed"
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_bookings_on_product_id"
+    t.index ["review_id"], name: "index_bookings_on_review_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_favourites_on_product_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "address"
+    t.string "category"
+    t.string "availibilty"
+    t.integer "price"
+    t.string "accessoires"
+    t.string "condition"
+    t.string "model"
+    t.string "brand"
+    t.string "delivery_method"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.integer "rating"
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +77,11 @@ ActiveRecord::Schema.define(version: 2020_11_23_105936) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "products"
+  add_foreign_key "bookings", "reviews"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "favourites", "products"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "products", "users"
+  add_foreign_key "reviews", "products"
 end
