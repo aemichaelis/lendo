@@ -33,7 +33,7 @@ product = Product.new(
   category: "Phones & Mobile Tech",
   availability: "true",
   price: "20",
-  accessoires: "comes with charger (USB) and screen protection",
+  accessories: "comes with charger (USB) and screen protection",
   condition: "Like New",
   model: "iPhone 8",
   brand: "Apple",
