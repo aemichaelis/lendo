@@ -1,0 +1,16 @@
+<div class="container">
+  <%= simple_form_for(@product) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :address %>
+      <%= f.input :category, :collection => @categories %>
+      <%= f.input :price %>
+      <%= f.input :accessoires %>
+      <%= f.input :condition, :collection => @condition %>
+      <%= f.input :brand %>
+      <%= f.input :model %>
+      <%= f.input :delivery_method, :collection => ['Pick up', 'Delivery', 'Flexible'] %>
+      <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+
+</div>
