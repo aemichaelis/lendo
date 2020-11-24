@@ -4,8 +4,8 @@
       <%= f.input :description %>
       <%= f.input :address %>
       <%= f.input :category, :collection => @categories %>
-      <%= f.input :price %>
-      <%= f.input :accessoires %>
+      <%= f.input :price, placeholder: 'Price per day' %>
+      <%= f.input :accessoires, placeholder: 'Seperated with commas, e.g. "Tripod, Macro lens, Remote"' %>
       <%= f.input :condition, :collection => @condition %>
       <%= f.input :brand %>
       <%= f.input :model %>
