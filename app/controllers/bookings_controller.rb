@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.product = @product
     if @booking.save
       redirect_to @booking
     else
