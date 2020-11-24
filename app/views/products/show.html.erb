@@ -1,6 +1,6 @@
-  <div class="container-workshop">
-    <%= link_to "Back", products_path, class: "btn btn-secondary back" %>
-    <div class="card rounded card-workshop" style="width:1168px" id="container-workshop">
+  <div class="container center">
+    <%= link_to "Back", products_path, class: "btn btn-secondary" %>
+    <div class="card rounded card" style="width:1168px" id="container">
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <% @product.photos.each_with_index do |photo, index| %>
@@ -25,8 +25,8 @@
           <h3 class="card-subheader"><%= @product.category %></h3>
           <h3 class="card-subheader">Description:</h3>
           <p><%= @product.description %></p>
-          <h3 class="card-subheader">Equipment:</h3>
-          <p><%= @product.equipment %></p>
+          <h3 class="card-subheader">Accessories:</h3>
+          <p><%= @product.accessories %></p>
           <div class="reviews-container">
             <div class="review">
               <h3 class="card-subheader">Reviews: </h3>
@@ -34,16 +34,12 @@
               days here. The equipment is awesome and Peter always gives great tips
               on how to include different sounds into my set..."</p>
               <p>
-                <br>
+              <br>
                 Sarah L. says: <br>"Just amazing, they had everything I needed, even a piano which is uncommen these days.
                 I was able to create a killer tune."
               </p>
             </div>
           </div>
-        </div>
-        <div class="form">
-          <%= render 'shared/form' %>
-        </div>
       </div>
     </div>
   </div>
