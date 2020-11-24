@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_142412) do
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "bookings_id", null: false
-    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
@@ -103,6 +103,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_142412) do
   add_foreign_key "favourites", "products"
   add_foreign_key "favourites", "users"
   add_foreign_key "products", "users"
-  add_foreign_key "reviews", "bookings", column: "bookings_id"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "products"
 end
