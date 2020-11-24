@@ -257,7 +257,7 @@ product = Product.new(
   Dispatched with Royal Mail 2nd Class. This is a stunning example of Canons great Features,
   please look up full Tech-Info on Canon Website. It's a lovely camera for a good price.
   As a photographer I would snap this up!
-  Any Questions, just shoot me a message. The items will be rented in the condition as shown in pictures, safely packed."
+  Any Questions, just shoot me a message. The items will be rented in the condition as shown in pictures, safely packed.",
   address: "Crellestraße 26, 10827 Berlin",
   category: "Cameras",
   price: "24",
