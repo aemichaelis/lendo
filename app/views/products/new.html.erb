@@ -1,0 +1,17 @@
+<div class="container">
+  <%= simple_form_for(@product) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :address %>
+      <%= f.input :category, :collection => @categories %>
+      <%= f.input :price, placeholder: 'Price per day' %>
+      <%= f.input :accessoires, placeholder: 'Seperated with commas, e.g. "Tripod, Macro lens, Remote"' %>
+      <%= f.input :condition, :collection => @condition %>
+      <%= f.input :brand %>
+      <%= f.input :model %>
+      <%= f.input :delivery_method, :collection => ['Pick up', 'Delivery', 'Flexible'] %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+
+</div>
