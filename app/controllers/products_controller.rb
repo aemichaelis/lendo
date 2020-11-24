@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
+    @favourite = Favourite.new
   end
-  
+
   def new
     @categories = ['Computers', 'Phones & Mobile Tech', 'Cameras', 'Gaming', 'Music', 'Home', 'Drones', 'Other']
     @condition = ['Like New', 'Normal Wear', 'Minor Cosmetic Faults', 'Minor Functional Faults']
@@ -18,8 +19,8 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  
-  def index 
+
+  def index
     @products = Product.all
   end
 

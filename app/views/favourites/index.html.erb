@@ -1,0 +1,7 @@
+<h1>My Favourites</h1>
+
+<ul>
+  <% @favourites.each do |favourite| %>
+    <li><%= favourite.product.title %></li>
+  <% end %>
+</ul>
