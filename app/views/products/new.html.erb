@@ -10,6 +10,7 @@
       <%= f.input :brand %>
       <%= f.input :model %>
       <%= f.input :delivery_method, :collection => ['Pick up', 'Delivery', 'Flexible'] %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit class: "btn btn-primary" %>
   <% end %>
 

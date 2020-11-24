@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :bookings
   has_many :favourites
   has_many :reviews, through: :bookings
+  has_many_attached :photos
   validates :title, :description, :address, :price, :model, :brand, presence: true
   validates :delivery_method, presence: true, inclusion: { in: ['Pick up', 'Delivery', 'Flexible'] }
   validates :category, presence: true, inclusion: { in: categories }
