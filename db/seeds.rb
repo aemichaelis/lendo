@@ -31,7 +31,6 @@ product = Product.new(
   can stay connected via 4G and Wi-Fi.",
   address: "Pestalozzistraße 25, 10627 Berlin",
   category: "Phones & Mobile Tech",
-  availability: "true",
   price: "20",
   accessoires: "comes with charger (USB) and screen protection",
   condition: "Like New",
@@ -42,7 +41,7 @@ product = Product.new(
 product.user = user
 
 file = URI.open('https://images.unsplash.com/photo-1560084157-d6ba2c88ad82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3034&q=80')
-workshop.photos.attach(io: file, filename: "product_01.png", content_type: 'image/png')
+product.photos.attach(io: file, filename: "product_01.png", content_type: 'image/png')
 
 product.save!
 

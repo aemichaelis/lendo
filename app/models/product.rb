@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many_attached :photos
   categories = ['Computers', 'Phones & Mobile Tech', 'Cameras', 'Gaming', 'Music', 'Home', 'Drones', 'Other']
   condition = ['Like New', 'Normal Wear', 'Minor Cosmetic Faults', 'Minor Functional Faults']
   belongs_to :user
