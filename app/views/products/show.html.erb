@@ -1,5 +1,8 @@
   <div class="container center">
     <%= link_to "Back", products_path, class: "btn btn-secondary" %>
+    <%= simple_form_for([@product, @favourite]) do |f| %>
+      <%= f.button :submit, "Add to Favourites", class: "btn btn-secondary" %>
+    <% end %>
     <div class="card rounded card" style="width:1168px" id="container">
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
