@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_115902) do
+ActiveRecord::Schema.define(version: 2020_11_24_142412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +42,9 @@ ActiveRecord::Schema.define(version: 2020_11_24_115902) do
     t.string "confirmed"
     t.bigint "product_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_bookings_on_product_id"
-    t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -82,6 +80,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_115902) do
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bookings_id", null: false
+    t.index ["bookings_id"], name: "index_reviews_on_bookings_id"
     t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 2020_11_24_115902) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "products"
-  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
   add_foreign_key "favourites", "products"
   add_foreign_key "favourites", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "reviews", "bookings", column: "bookings_id"
   add_foreign_key "reviews", "products"
 end
