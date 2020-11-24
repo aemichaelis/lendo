@@ -1,0 +1,50 @@
+  <div class="container-workshop">
+    <%= link_to "Back", products_path, class: "btn btn-secondary back" %>
+    <div class="card rounded card-workshop" style="width:1168px" id="container-workshop">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @product.photos.each_with_index do |photo, index| %>
+      <div class="carousel-item card-images <%= "active" if index==0 %> ">
+        <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
+      </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="container container-workshop">
+      <div class="card-body">
+        <div class="card-info">
+          <h1><%= @product.title %></h1>
+          <h3 class="card-subheader"><%= @product.category %></h3>
+          <h3 class="card-subheader">Description:</h3>
+          <p><%= @product.description %></p>
+          <h3 class="card-subheader">Equipment:</h3>
+          <p><%= @product.equipment %></p>
+          <div class="reviews-container">
+            <div class="review">
+              <h3 class="card-subheader">Reviews: </h3>
+              <p>Santi S. says: <br>"This was such an amazing workshop, I really loved spending three
+              days here. The equipment is awesome and Peter always gives great tips
+              on how to include different sounds into my set..."</p>
+              <p>
+                <br>
+                Sarah L. says: <br>"Just amazing, they had everything I needed, even a piano which is uncommen these days.
+                I was able to create a killer tune."
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="form">
+          <%= render 'shared/form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
