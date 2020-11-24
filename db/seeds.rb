@@ -32,7 +32,7 @@ product = Product.new(
   address: "Pestalozzistraße 25, 10627 Berlin",
   category: "Phones & Mobile Tech",
   price: "20",
-  accessoires: "comes with charger (USB) and screen protection",
+  accessories: "comes with charger (USB) and screen protection",
   condition: "Like New",
   model: "iPhone 8",
   brand: "Apple",
