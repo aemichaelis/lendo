@@ -9,7 +9,7 @@
         <div class="col-lg-6 col-md-4">
             <div class="card mb-4 index-border">
                 <div class="card-images">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg/440px-LEI0440_Leica_IIIf_chrom_-_Sn._580566_1951-52-M39_Blitzsynchron_front_view-6531_hf-.jpg">
+                <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
                 </div>
               <h2> <strong> <%= product.title %> </strong></h2>
               <div class='card-body'>
