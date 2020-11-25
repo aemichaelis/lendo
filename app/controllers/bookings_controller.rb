@@ -1,11 +1,13 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings
+    # @bookings = current_user.bookings
+    @bookings = policy_scope(current_user.bookings)
   end
 
   def new
     @booking = Booking.new
     @product = Product.find(params[:product_id])
+    authorize @booking
   end
 
   def create
@@ -13,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.product = @product
+    authorize @booking
     if @booking.save
       redirect_to @booking
     else
