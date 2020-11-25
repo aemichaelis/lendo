@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :update, :destroy]
 
   get '/myproducts', to: 'products#myproducts', as: :myproducts
-  put '/myproducts', to: 'products#myproducts', as: :myproducts
+  put '/myproducts', to: 'products#myproducts', as: :myproduct
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
