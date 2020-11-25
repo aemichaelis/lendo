@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.product = @product
     authorize @booking
     if @booking.save
-      redirect_to @booking
+      redirect_to bookings_path
     else
       render :new
     end

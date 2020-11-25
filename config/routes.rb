@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
   resources :products do
     resources :bookings, except: [:show, :index]
     resources :favourites, only: [:create]
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :favourites, only: [:index]
   resources :products, only: [:show, :update, :destroy]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
