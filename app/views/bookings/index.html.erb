@@ -13,6 +13,9 @@
             <h2>€<%= booking.product.price %>/day</h2>
             <h2>€<%= (booking.product.price.to_i * (booking.check_out - booking.check_in)).to_i%> Total</h2>
           </div>
+          <div>
+            <%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-primary" %>
+          </div>
         </div>
       </div>
     <% end %>

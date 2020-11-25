@@ -9,6 +9,7 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.new
     @favourite.product = @product
     @favourite.user = current_user
+    authorize @favourite
     if @favourite.save
       redirect_to @product
       flash[:notice] = "Saved to favourites!"
@@ -18,6 +19,6 @@ class FavouritesController < ApplicationController
   end
 
   def index
-    @favourites = current_user.favourites.all
+    @favourites = policy_scope(current_user.favourites)
   end
 end

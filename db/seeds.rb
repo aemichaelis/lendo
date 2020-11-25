@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "clearing the db..."
 
+Review.destroy_all
+
 Booking.destroy_all
 
 Product.destroy_all
 
 User.destroy_all
 
-puts "creating seeds..."
+puts "creating products..."
 
 user = User.create(
   email: "paul@paul.com",
@@ -225,7 +227,7 @@ product.photos.attach(io: file, filename: "product_08.png", content_type: 'image
 
 product.save!
 
-product = Product.new(
+product_09 = Product.new(
   title: "A classic of analogue SL Cameras",
   description:"Camera has been fully serviced & comes with a 6 month Warranty;
   the film winder, shutter timings & light meter have all been checked & are true.
@@ -244,14 +246,14 @@ product = Product.new(
   brand: "Nikon",
   delivery_method: "Pick up",
   )
-product.user = user
+product_09.user = user
 
 file = URI.open('https://images.unsplash.com/photo-1487004820913-ccbc3ebb15d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTR8fG5pa29uJTIwZjF8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60')
-product.photos.attach(io: file, filename: "product_09.png", content_type: 'image/png')
+product_09.photos.attach(io: file, filename: "product_09.png", content_type: 'image/png')
 
-product.save!
+product_09.save!
 
-product = Product.new(
+product_10 = Product.new(
   title: "mint condition Canon DLSR camera",
   description:"Canon EOS 6D with 28-105mm lens and extras for instant start-up photographers.
   Dispatched with Royal Mail 2nd Class. This is a stunning example of Canons great Features,
@@ -267,11 +269,48 @@ product = Product.new(
   brand: "Canon",
   delivery_method: "Flexible",
   )
-product.user = user
+product_10.user = user
 
 file = URI.open('https://images.unsplash.com/photo-1551194201-5b634bd23931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
-product.photos.attach(io: file, filename: "product_10.png", content_type: 'image/png')
+product_10.photos.attach(io: file, filename: "product_10.png", content_type: 'image/png')
 
-product.save!
+product_10.save!
+
+puts "create bookings..."
+
+user_second = User.create(
+  email: "alex@alex.com",
+  password: "testing",
+  )
+
+booking = Booking.new(
+  check_in: "2020-11-24",
+  check_out: "2020-11-26",
+  confirmed: "pending",
+  )
+booking.product = product_10
+booking.user = user_second
+
+booking.save!
+
+booking = Booking.new(
+  check_in: "2020-12-02",
+  check_out: "2021-12-09",
+  confirmed: "pending",
+  )
+booking.product = product_09
+booking.user = user_second
+
+booking.save!
 
 puts "finished"
+
+
+
+
+
+
+
+
+
+

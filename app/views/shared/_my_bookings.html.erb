@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Bookings</h1>
+  <% @bookings.each do |booking| %>
+    <div class="card-trip">
+      <%= cl_image_tag booking.product.photos[0].key, height: 200, width: 1650, crop: :fill %>
+      <div class="card-trip-infos">
+        <div class="card-trip-description">
+          <h2><%= booking.product.title %></h2>
+          <p><%= booking.product.description.truncate(120) %></p>
+          <p id="dates">Dates: <%= booking.check_in %> until <%= booking.check_out %></p>
+        </div>
+        <div class="card-trip-pricing">
+          <h2><%= pluralize (booking.check_out - booking.check_in).to_i , 'day'%></h2>
+          <h2>€<%= booking.product.price %>/day</h2>
+          <h2>€<%= (booking.product.price.to_i * (booking.check_out - booking.check_in)).to_i%> Total</h2>
+        </div>
+        <div>
+          <%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
