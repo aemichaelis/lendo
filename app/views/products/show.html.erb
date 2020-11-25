@@ -33,14 +33,15 @@
           <div class="reviews-container">
             <div class="review">
               <h3 class="card-subheader">Reviews: </h3>
-              <p>Santi S. says: <br>"This was such an amazing workshop, I really loved spending three
-              days here. The equipment is awesome and Peter always gives great tips
-              on how to include different sounds into my set..."</p>
-              <p>
-              <br>
-                Sarah L. says: <br>"Just amazing, they had everything I needed, even a piano which is uncommen these days.
-                I was able to create a killer tune."
-              </p>
+              <ul class="list-group">
+                <% @product.reviews.each do |review| %>
+                <li class="list-group-item">
+                <%= review.rating %>/5
+                <br>
+                <%= review.description %>
+                <% end %>
+                </li>
+              </ul>
             </div>
           </div>
       </div>
