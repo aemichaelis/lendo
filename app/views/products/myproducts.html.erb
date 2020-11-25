@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+    </div>
+    <h1> Your Products</h1>
+    <% @products.each do |product| %>
+      <div class="card-trip">
+        <div class="card-trip-infos">
+          <div class="card-trip-description">
+            <h2><%= product.title %></h2>
+            <p><%= product.description.truncate(375) %></p>
+            <li><%= link_to "Delete", product_path(product), method: :delete,  data: { confirm: "Are you sure?" } %> </li>
+            <li><%= link_to "Edit", edit_product_path(product) %> </li>
+        </div>
+      </div>
+    <% end %>
+  </div>
