@@ -1,4 +1,6 @@
   <div class="container center">
+    <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
+    <%= link_to "Delete Product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
     <%= link_to "Back", products_path, class: "btn btn-secondary" %>
     <%= simple_form_for([@product, @favourite]) do |f| %>
       <%= f.button :submit, "Add to Favourites", class: "btn btn-secondary" %>

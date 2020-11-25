@@ -29,15 +29,21 @@ class ProductsController < ApplicationController
     @products = policy_scope(Product)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    authorize @product
+  end
 
   def update
     @product = Product.find(params[:id])
+    authorize @product
     @product.update(product_params)
     redirect_to product_path(@product)
   end
-  
+
   def destroy
     @product = Product.find(params[:id])
+    authorize @product
     @product.destroy
     redirect_to products_path
   end
