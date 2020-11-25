@@ -25,8 +25,19 @@ class ProductsController < ApplicationController
   end
 
   def index
+    if params[:query].present?
+      sql_query = " \
+        products.title @@ :query \
+        OR products.description @@ :query \
+        OR products.category @@ :query \
+        OR products.brand @@ :query \
+        OR products.model @@ :query "
+      @products = Product.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @products = Product.order("created_at DESC").all
+    end
     # @products = Product.all
-    @products = policy_scope(Product)
+     @products = policy_scope(Product)
   end
 
 

@@ -1,7 +1,8 @@
   <div>
     <div class="row justify-content-center bg-blue">
+      <%= render 'shared/searchform' %>
     </div>
-  <h1 class="text-center prompt">We found 25 Products based on your search:</h1>
+  <h1 class="text-center prompt">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
   </div>
   <div class="container">
     <div class="row">

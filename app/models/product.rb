@@ -10,5 +10,4 @@ class Product < ApplicationRecord
   validates :title, :description, :address, :price, :model, :brand, presence: true
   validates :delivery_method, presence: true, inclusion: { in: ['Pick up', 'Delivery', 'Flexible'] }
   validates :category, presence: true, inclusion: { in: categories }
-  validates :condition, presence: true, inclusion: { in: condition }
 end
