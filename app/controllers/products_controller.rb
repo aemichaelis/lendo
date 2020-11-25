@@ -21,7 +21,17 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      sql_query = " \
+        products.title @@ :query \
+        OR products.description @@ :query \
+        OR products.category @@ :query \
+        OR products.brand @@ :query \
+        OR products.model @@ :query "
+      @products = Product.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @products = Product.order("created_at DESC").all
+    end
   end
 
   private
