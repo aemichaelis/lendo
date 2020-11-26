@@ -1,0 +1,50 @@
+.container-product {
+  background-color: $background-pink;
+}
+
+.product-border {
+  border: none;
+}
+
+.product-title {
+  padding-top: 54px;
+  padding-bottom: 4px;
+}
+
+.product-location {
+  color: $primary-color;
+  padding-bottom: 8px;
+}
+
+.content-info {
+  padding-top: 48px;
+  margin-bottom: 0;
+}
+
+.product-specs {
+  padding-bottom: 8px;
+}
+
+.card-subheader i {
+  color: $primary-color;
+}
+
+.review li {
+  background-color: $background-pink;
+  border-radius: 6px;
+  border: 1px solid black;
+  margin-bottom: 24px;
+}
+
+.review-border {
+  border: 1px solid black !important;
+}
+
+.stars {
+  color: $primary-color;
+}
+
+.booking-title {
+  padding-top: 12px;
+}
+

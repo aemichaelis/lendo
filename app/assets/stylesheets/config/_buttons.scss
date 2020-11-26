@@ -22,7 +22,7 @@
 
 .secondary-button {
   text-decoration: none;
-  color: $text-black;
+  color: $secondary-black;
   background-color: white;
   align-items: center;
   padding: 8px 16px;
@@ -37,7 +37,7 @@
   &:hover {
     background-color: white;
     box-shadow: 0 0.2rem 0.5rem rgba(103,110,144,.4), 0 0 0 0.1rem rgba(103,110,144,.05);
-    color: $text-black;
+    color: $secondary-black;
     text-decoration: none;
     font-weight: 600;
   }

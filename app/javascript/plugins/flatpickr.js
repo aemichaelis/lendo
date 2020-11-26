@@ -5,6 +5,7 @@ import flatpickr from "flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   flatpickr(".datepicker", {
+    static: true;
     altInput: true,
     altFormat: "F j, Y",
     dateFormat: "Y-m-d"

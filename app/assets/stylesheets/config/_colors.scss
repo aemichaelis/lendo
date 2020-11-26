@@ -14,4 +14,19 @@ $text-black: #333333;
 
 body {
   background-color: #FFDC9F;
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $primary-color;
+    opacity: .7;
+  }
 }
+
+body#show-page {
+  background-color: $background-pink;
+}
+
