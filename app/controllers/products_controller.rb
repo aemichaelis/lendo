@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
       @products = policy_scope(Product.order("created_at DESC").all)
     end
      # @products = policy_scope(Product)
+     @favourite = Favourite.new
   end
 
 

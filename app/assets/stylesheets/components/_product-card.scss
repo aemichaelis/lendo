@@ -27,6 +27,13 @@
   .fa-heart{
     font-size: 12px;
     line-height: 30px;
+    z-index: -1;
+  }
+  .far {
+    line-height: 25px;
+  }
+  .form {
+    padding-top: 0px;
   }
 }
 
@@ -43,5 +50,11 @@
   }
   h4 {
     font-size: 14px
+  }
+}
+
+button {
+  .fa-heart{
+    line-height: 25px;
   }
 }

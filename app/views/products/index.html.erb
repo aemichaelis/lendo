@@ -15,23 +15,31 @@
   <div class="product-card-container">
     <div class="row product-card-row">
       <% @products.each do |product| %>
-        <%= link_to product_path(product) do %>
-          <div class="product-card">
-            <!-- Image -->
-            <div class="image image-small">
-              <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+        <div class="product-card">
+          <!-- Image -->
+          <div class="image image-small">
+            <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+            <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
               <div class="heart">
-                <i class="far fa-heart"></i>
+                <i class="fa fa-heart"></i>
               </div>
-            </div>
-            <!-- card-description -->
+            <% else %>
+              <%= simple_form_for([product, @favourite]) do |f| %>
+                <%= button_tag type: 'submit', class: "heart" do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- card-description -->
+          <%= link_to product_path(product) do %>
             <div class="product-card-description">
               <h3><%= product.title.truncate(25) %></h3>
               <p> <%= product.description.truncate(70) %> </p>
               <h4><span class="product-card-price">€ <%= product.price %></span> per Month</h4>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
