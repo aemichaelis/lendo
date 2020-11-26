@@ -22,8 +22,10 @@
             <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
             <% if policy(Favourite).create? %>
               <%= simple_form_for([@product, @favourite]) do |f| %>
-              <h2><%= f.button :submit, class: "heart far fa-heart", value: "" %>
-                <i class="heart far fa-heart"></i></h2>
+              <h2><%= button_tag type: 'submit', class: "heart small" do %>
+                    <i class="far fa-heart small"></i>
+                <% end %>
+                <i class="heart far fa-heart small"></i></h2>
               <% end %>
             <% end %>
           </div>
