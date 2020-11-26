@@ -16,3 +16,14 @@
 </div>
 
 <!-- comment -->
+
+<div class="card mb-4 index-border">
+    <div class="card-images">
+    <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
+    </div>
+  <h2> <strong> <%= product.title %> </strong></h2>
+  <div class='card-body'>
+   <p> <%= link_to product.description.truncate(110), product_path(product), class: "stretched-link" %> </p>
+   <h2 class="price"> <strong> <%= product.price %>€</strong> </h2>
+  </div>
+</div>
