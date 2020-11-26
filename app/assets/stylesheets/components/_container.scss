@@ -7,3 +7,20 @@
   margin-left: 80px;
   margin-right: 80px;
 }
+
+.container-content {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.product-card-container {
+  flex-grow: 4;
+}
+
+.container-sidebar {
+  flex-grow: 1;
+  width: 318px;
+  height: 100%;
+  border: 5px solid black;
+}
