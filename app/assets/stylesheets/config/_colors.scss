@@ -13,8 +13,20 @@ $success-green: #648E46;
 
 body {
   background-color: white;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $primary-color;
+    opacity: .7;
+  }
+
 }
 
 body#show-page{
   background-color: $background-pink;
 }
+
