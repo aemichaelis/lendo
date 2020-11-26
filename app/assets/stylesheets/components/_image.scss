@@ -1,0 +1,28 @@
+.image-large {
+  position: relative;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  img {
+    width: 100%;
+    border-radius: 6px;
+  }
+}
+
+
+.heart {
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  top: 37px;
+  right: 37px;
+  .fa-heart{
+    color: $primary-color;
+    font-size: 30px;
+    line-height: 60px;
+  }
+}
