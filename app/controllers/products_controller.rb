@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def show
     @product = Product.find(params[:id])
+    @booking = Booking.new
     authorize @product
     @favourite = Favourite.new
   end
@@ -37,6 +38,7 @@ class ProductsController < ApplicationController
       @products = policy_scope(Product.order("created_at DESC").all)
     end
      # @products = policy_scope(Product)
+     @favourite = Favourite.new
   end
 
 

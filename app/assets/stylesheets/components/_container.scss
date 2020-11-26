@@ -10,3 +10,42 @@
   margin-right: 80px;
 }
 
+.container-content {
+  padding-right: 80px;
+  padding-left: 0px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.product-card-container {
+  flex-grow: 1;
+  margin-top: 32px;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.product-card-row {
+  padding: 0px 24px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 318px;
+  margin-right: 87px;
+}
+
+.sidebar-menu {
+  width: 318px;
+  height: 100%;
+}
+
+a {
+  color: #010101;
+  font-family: $body-font;
+  :hover{
+    text-decoration: none !important;
+    color: #010101;
+  }
+}
