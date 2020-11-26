@@ -1,0 +1,41 @@
+.product-card {
+  height: 384px;
+  width: 303px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  justify-content: center;
+}
+
+.image-small {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  .fa-heart{
+    font-size: 12px;
+    line-height: 30px;
+  }
+}
+
+.product-card-description {
+  h3 {
+    font-size: 20px
+  }
+  p {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .product-card-price{
+    font-size: 20px
+  }
+  h4 {
+    font-size: 14px
+  }
+}
