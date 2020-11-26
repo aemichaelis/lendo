@@ -73,12 +73,15 @@
                 <p><%= @product.address %></p>
               </div>
               <div class="col-3">
-                <a href="https://www.google.com/maps/place/Berlin/"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+                <a href="https://www.google.com/maps/place/Berlin/" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
               </div>
             </div>
             <%= image_tag("map_fake.png", class: "image-medium") %>
           <div class="reviews-container content-info">
-            <h2 class="card-subheader">Reviews: </h2>
+            <h2 class="card-subheader"><i class="fas fa-star"> </i> Reviews (<%= @product.reviews.count %>) </h2>
+            <% if @product.reviews.count == 0 %>
+              <p>There are no Reviews yet.</p>
+            <% else %>
               <ul class="list-group">
                 <% @product.reviews.each do |review| %>
                 <li class="list-group-item">
@@ -87,6 +90,7 @@
                 <% end %>
                 </li>
               </ul>
+            <% end %>
             </div>
           </div>
         </div>
