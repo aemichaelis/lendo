@@ -1,0 +1,25 @@
+.nav-tabs {
+  border-bottom: 0px solid #dee2e6;
+  margin-top: 24px;
+}
+
+.nav-item {
+  border-color: #FFDC9F;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: $secondary-black;
+  background-color: #FFDC9F;
+  border-color: #FFDC9F;
+}
+
+
+.nav-tabs .nav-link:hover {
+  color: $secondary-black;
+  border-color: #FFDC9F;
+  box-shadow: 0 2px 0 $secondary-black;
+}
+
+.nav-link {
+  color: $secondary-black;
+}
