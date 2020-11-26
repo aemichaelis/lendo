@@ -1,15 +1,22 @@
 <div class="container booking-form">
   <div class="booking-info">
-    <h1>Request This Tech!</h1>
-    <!-- Can replace this to include owner name -->
-    <p>You're so close to getting your hands on this awesome device. Just select your dates and submit your request. <br> Once the owner approves you'll be good to go!</p>
-    <h3> <strong><%= @product.price %>€</strong> / Week</h3>
+    <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per month</h3>
+    <h2 class="booking-title"><%= @product.brand %> <%= @product.model %></h2>
+    <p><%= @product.description.truncate(35) %> </p>
+    <p><i class="far fa-check-circle"></i> <%= @product.condition %></p>
+    <p><i class="fas fa-truck"></i> <%= @product.delivery_method %></p>
   </div>
   <div class="form-wrapper">
     <%= simple_form_for([@product, @booking]) do |f| %>
-      <%= f.input :check_in, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :check_out, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Reserve Your Tech!", class: "btn btn-primary form-control submit" %>
+      <%= f.input :check_in, placeholder: "01. 12. 2020", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :check_out, placeholder: "05. 12. 2020", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Reserve", class: "btn btn-primary form-control submit" %>
     <% end %>
   </div>
+  <div class="text-center">
+    <p class="small_text">You don't have to pay anything yet.</p>
+  </div>
+  <h3 class="spacing"><%= @product.price %> € for 14 Days </h3>
+  <h3 class="bottom-line">incl. Service Fee (10%)</h3>
+  <h2 class="spacing">Total amount: 25,80 €</h2>
 </div>

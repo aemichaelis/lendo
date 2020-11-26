@@ -87,7 +87,7 @@
                 <li class="list-group-item review-border">
                   <p><%= review.user.email %>:</p>
                   <p><%= review.description %></p>
-                  <div class="d-flex-row">
+                  <div class="d-flex-row stars">
                     <% review.rating.to_i.times do %><i class="fas fa-star"></i>
                     <% end %><br>
                   </div>
@@ -100,9 +100,9 @@
         </div>
       </div>
         <div class="col-4">
-          <h2>Location</h2>
-          <p><%= @product.address %></p>
+          <%= render 'shared/booking_form' %>
         </div>
+      </div>
     </div>
   </div>
 </body>
