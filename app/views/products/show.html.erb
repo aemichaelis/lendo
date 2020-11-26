@@ -1,61 +1,67 @@
-  <div class="container center">
-
-    <% if policy(@product).edit? %>
-      <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
-    <% end %>
-
-    <% if policy(@product).destroy? %>
-      <%= link_to "Delete Product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-    <% end %>
-
-    <%= link_to "Back", products_path, class: "btn btn-secondary" %>
-    <% if policy(Favourite).create? %>
-      <%= simple_form_for([@product, @favourite]) do |f| %>
-        <%= f.button :submit, "Add to Favourites", class: "btn btn-secondary" %>
+<body id="show-page">
+  <div class="con-small row justify-content-center">
+      <% if policy(@product).edit? %>
+        <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
       <% end %>
-    <% end %>
 
-    <div class="card rounded card" style="width:1168px" id="container">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <% @product.photos.each_with_index do |photo, index| %>
-      <div class="carousel-item card-images <%= "active" if index==0 %> ">
-        <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
+      <% if policy(@product).destroy? %>
+        <%= link_to "Delete Product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
+
+    <div class="card rounded card product-border" style="width:1168px" id="container">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% @product.photos.each_with_index do |photo, index| %>
+        <div class="carousel-item card-images <%= "active" if index==0 %> ">
+          <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
+          <% if policy(Favourite).create? %>
+            <%= simple_form_for([@product, @favourite]) do |f| %>
+            <%= f.button :submit%>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <div class="container container-workshop">
-      <div class="card-body">
-        <div class="card-info">
-          <h1><%= @product.title %></h1>
-          <h3 class="card-subheader"><%= @product.category %></h3>
-          <h3 class="card-subheader">Description:</h3>
-          <p><%= @product.description %></p>
-          <h3 class="card-subheader">Accessories:</h3>
-          <p><%= @product.accessories %></p>
-          <div class="reviews-container">
-            <div class="review">
-              <h3 class="card-subheader">Reviews: </h3>
-              <ul class="list-group">
-                <% @product.reviews.each do |review| %>
-                <li class="list-group-item">
-                <%= review.rating %>/5
-                <br>
-                <%= review.description %>
-                <% end %>
-                </li>
-              </ul>
+    <div class="container-product">
+        <div class="card-body">
+          <div class="card-info">
+            <h1><%= @product.title %></h1>
+            <h2>Description</h2>
+            <p><%= @product.description %></p>
+            <h2>Product Specifications</h2>
+            <p><%= @product.brand %></p>
+            <p>Delivery: <%= @product.delivery_method %></p>
+            <p>Category: <%= @product.category %></p>
+            <p>Condition: <%= @product.condition %></p>
+            <h2>Accessories</h2>
+            <p><%= @product.accessories %></p>
+            <h2>Location</h2>
+            <p><%= @product.address %></p>
+            <div class="reviews-container">
+              <div class="review">
+                <h3 class="card-subheader">Reviews: </h3>
+                <ul class="list-group">
+                  <% @product.reviews.each do |review| %>
+                  <li class="list-group-item">
+                  <%= review.rating %>/5
+                  <br>
+                  <%= review.description %>
+                  <% end %>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>
