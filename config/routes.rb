@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   get '/myproducts', to: 'products#myproducts', as: :myproducts
   put '/myproducts', to: 'products#myproducts', as: :myproduct
+  get '/booking/:id/confirm', to: 'bookings#confirm', as: :confirm
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
