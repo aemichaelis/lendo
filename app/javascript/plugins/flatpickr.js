@@ -8,6 +8,6 @@ document.addEventListener('turbolinks:load', () => {
     static: true,
     altInput: true,
     altFormat: "F j, Y",
-    dateFormat: "Y-m-d"
+    dateFormat: "Y-m-d",
   })
 });
