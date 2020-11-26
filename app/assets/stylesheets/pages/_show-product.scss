@@ -28,3 +28,14 @@
 .card-subheader i {
   color: $primary-color;
 }
+
+.review li {
+  background-color: $background-pink;
+  border-radius: 6px;
+  border: 1px solid black;
+  margin-bottom: 24px;
+}
+
+.review-border {
+  border: 1px solid black !important;
+}
