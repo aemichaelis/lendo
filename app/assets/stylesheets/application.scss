@@ -1,6 +1,7 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/buttons";
 @import "config/bootstrap_variables";
 @import "config/buttons";
 
@@ -13,6 +14,7 @@
 // Your CSS partials
 @import "components/index";
 @import "components/image";
+@import "components/product-card";
 @import "pages/index";
 @import "partials/booking_form";
 
