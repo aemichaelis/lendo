@@ -1,25 +1,27 @@
-  <div>
-    <div class="row justify-content-center bg-blue">
-      <%= render 'shared/searchform' %>
+  <div class="con-small">
+    <div>
+      <div class="row justify-content-center bg-blue">
+        <%= render 'shared/searchform' %>
+      </div>
+    <h1 class="text-center prompt">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
     </div>
-  <h1 class="text-center prompt">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
-  </div>
-  <div class="container">
-    <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-lg-6 col-md-4">
-            <div class="card mb-4 index-border">
-                <div class="card-images">
-                <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
+    <div class="container">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-lg-6 col-md-4">
+              <div class="card mb-4 index-border">
+                  <div class="card-images">
+                  <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
+                  </div>
+                <h2> <strong> <%= product.title %> </strong></h2>
+                <div class='card-body'>
+                 <p> <%= link_to product.description.truncate(110), product_path(product), class: "stretched-link" %> </p>
+                 <h2 class="price"> <strong> <%= product.price %>€</strong> </h2>
                 </div>
-              <h2> <strong> <%= product.title %> </strong></h2>
-              <div class='card-body'>
-               <p> <%= link_to product.description.truncate(110), product_path(product), class: "stretched-link" %> </p>
-               <h2 class="price"> <strong> <%= product.price %>€</strong> </h2>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
