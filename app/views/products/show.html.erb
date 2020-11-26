@@ -85,8 +85,8 @@
               <ul class="list-group review">
                 <% @product.reviews.each do |review| %>
                 <li class="list-group-item review-border">
-                <%= review.user.email %>
-                <%= review.description %>
+                  <p><%= review.user.email %>:</p>
+                  <p><%= review.description %></p>
                   <div class="d-flex-row">
                     <% review.rating.to_i.times do %><i class="fas fa-star"></i>
                     <% end %><br>
