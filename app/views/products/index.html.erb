@@ -1,27 +1,49 @@
-  <div class="con-small">
-    <div>
-      <div class="row justify-content-center bg-blue">
-        <%= render 'shared/searchform' %>
-      </div>
-    <h1 class="text-center prompt">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
+<div class="con-large">
+  <div class="container pt-4">
+    <div class="row justify-content-center bg-blue mb-5">
+      <%= render 'shared/searchform' %>
     </div>
-    <div class="container">
-      <div class="row">
-        <% @products.each do |product| %>
-          <div class="col-lg-6 col-md-4">
-              <div class="card mb-4 index-border">
-                  <div class="card-images">
-                  <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
-                  </div>
-                <h2> <strong> <%= product.title %> </strong></h2>
-                <div class='card-body'>
-                 <p> <%= link_to product.description.truncate(110), product_path(product), class: "stretched-link" %> </p>
-                 <h2 class="price"> <strong> <%= product.price %>€</strong> </h2>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+  <h1 class="text-center prompt mt-3">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
+  </div>
+</div>
+<div class="container-content">
+  <div class="sidebar">
+    <div class="sidebar-menu">
+
     </div>
   </div>
+  <div class="product-card-container">
+    <div class="row product-card-row">
+      <% @products.each do |product| %>
+        <div class="col-lg-4 col-sm-6">
+          <div class="product-card">
+            <!-- Image -->
+            <div class="image image-small">
+              <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+              <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
+                <div class="heart">
+                  <i class="fa fa-heart"></i>
+                </div>
+              <% else %>
+                <%= simple_form_for([product, @favourite]) do |f| %>
+                  <%= button_tag type: 'submit', class: "heart" do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <!-- card-description -->
+            <%= link_to product_path(product) do %>
+              <div class="product-card-description">
+                <h3><%= product.title.truncate(25) %></h3>
+                <p> <%= product.description.truncate(70) %> </p>
+                <h4><span class="product-card-price">€ <%= product.price %></span> per Month</h4>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

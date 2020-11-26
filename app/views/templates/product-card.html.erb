@@ -1,0 +1,29 @@
+<!-- Card -->
+<div class="product-card">
+  <!-- Image -->
+  <div class="image image-small">
+    <img src="https://images.unsplash.com/photo-1516724562728-afc824a36e84?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80">
+    <div class="heart">
+      <i class="far fa-heart"></i>
+    </div>
+  </div>
+  <!-- card-description -->
+  <div class="product-card-description">
+    <h3>Nintendo Switch (2019)</h3>
+    <p>Renting out my Nintendo for all of the Pokemon geeks out there. The...</p>
+    <h4><span class="product-card-price">€12</span> per Month</h4>
+  </div>
+</div>
+
+<!-- Previous card template for reference -->
+
+<div class="card mb-4 index-border">
+    <div class="card-images">
+    <%= cl_image_tag product.photos[0].key, height: 300, width: 490, crop: :fill %>
+    </div>
+  <h2> <strong> <%= product.title %> </strong></h2>
+  <div class='card-body'>
+   <p> <%= link_to product.description.truncate(110), product_path(product), class: "stretched-link" %> </p>
+   <h2 class="price"> <strong> <%= product.price %>€</strong> </h2>
+  </div>
+</div>
