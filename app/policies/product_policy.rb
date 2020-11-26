@@ -20,4 +20,8 @@ class ProductPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def myproducts?
+    true
+  end
 end

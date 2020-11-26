@@ -32,17 +32,17 @@ class ProductsController < ApplicationController
         OR products.category @@ :query \
         OR products.brand @@ :query \
         OR products.model @@ :query "
-      @products = Product.where(sql_query, query: "%#{params[:query]}%")
+      @products = policy_scope(Product.where(sql_query, query: "%#{params[:query]}%"))
     else
-      @products = Product.order("created_at DESC").all
+      @products = policy_scope(Product.order("created_at DESC").all)
     end
-    # @products = Product.all
-     @products = policy_scope(Product)
+     # @products = policy_scope(Product)
   end
 
 
   def myproducts
-    @products = current_user.products
+    @products = policy_scope(Product.where(user: current_user))
+    authorize @products
   end
 
   def edit
