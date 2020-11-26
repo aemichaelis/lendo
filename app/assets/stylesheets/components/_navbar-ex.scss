@@ -1,12 +1,10 @@
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;..");
-}
-
 .navbar-lendo {
   justify-content: space-between;
   background: $background-yellow;
   padding-left: 80px !important;
   padding-right: 80px !important;
+  height: 180px;
+}
 
 .navbar-lendo .navbar-collapse {
   flex-grow: 0;
