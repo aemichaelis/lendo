@@ -17,10 +17,15 @@ class BookingsController < ApplicationController
     @booking.product = @product
     authorize @booking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to confirm_path(@booking)
     else
       render :new
     end
+  end
+
+  def confirm
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
