@@ -24,6 +24,7 @@
   right: 10px;
   height: 30px;
   width: 30px;
+  padding-top: 2px;
   .fa-heart{
     font-size: 12px;
     line-height: 30px;
@@ -38,6 +39,7 @@
 }
 
 .product-card-description {
+  color: #010101;
   h3 {
     font-size: 20px
   }
@@ -50,6 +52,9 @@
   }
   h4 {
     font-size: 14px
+  }
+  :hover{
+    text-decoration: none !important;
   }
 }
 
