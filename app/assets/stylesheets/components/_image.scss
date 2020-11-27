@@ -43,6 +43,7 @@
   background-color: white;
   color: $primary-color;
   padding-top: 14px;
+  z-index: 1;
 }
 
 .heart-small {
@@ -65,4 +66,8 @@
     content: "\f004";
     font-size: 14px;
     line-height: 28px;
+}
+
+.carousel-control-next {
+  z-index: 0;
 }
