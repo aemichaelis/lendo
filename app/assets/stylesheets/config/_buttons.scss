@@ -1,5 +1,4 @@
 .primary-button {
-  text-decoration: none;
   color: white;
   background-color: $primary-color;
   align-items: center;
@@ -9,14 +8,39 @@
   font-size: 16px;
   border-radius: 6px;
   height: 35px;
-  font-weight: 500;
+  font-weight: 600;
+  text-decoration: none;
+  border-color: $primary-color;
+  border-style: none;
 
   &:hover {
     background-color: $primary-color;
     opacity: 0.54;
     color: white;
     text-decoration: none;
-    font-weight: 600;
+  }
+}
+
+.primary-button-large {
+  color: white;
+  background-color: $primary-color;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  height: 41px;
+  font-weight: 600;
+  text-decoration: none;
+  border-color: $primary-color;
+  border-style: none;
+
+  &:hover {
+    background-color: $primary-color;
+    opacity: 0.54;
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -32,14 +56,13 @@
   font-size: 16px;
   border-radius: 6px;
   height: 35px;
-  font-weight: 500;
+  font-weight: 600;
+  border-style: none;
 
   &:hover {
-    background-color: white;
-    box-shadow: 0 0.2rem 0.5rem rgba(103,110,144,.4), 0 0 0 0.1rem rgba(103,110,144,.05);
+    box-shadow: 0 0.2rem 0.5rem rgba(103,110,144,.3), 0 0 0 0.1rem rgba(103,110,144,.04);
     color: $secondary-black;
     text-decoration: none;
-    font-weight: 600;
   }
 }
 
@@ -47,6 +70,7 @@
 .secondary-button-unactive {
   text-decoration: none;
   color: $secondary-black;
+  background-color: transparent;
   border: 1px solid $secondary-black;
   align-items: center;
   padding: 8px 16px;
@@ -55,19 +79,19 @@
   font-size: 16px;
   border-radius: 6px;
   height: 35px;
-  font-weight: 500;
+  font-weight: 600;
 
   &:hover {
     background-color: $secondary-black;
     color: white;
     text-decoration: none;
-    font-weight: 600;
   }
 }
 
 .other-button-unactive {
   text-decoration: none;
   color: $secondary-black;
+  background-color: transparent;
   align-items: center;
   padding: 8px 16px;
   box-sizing: border-box;
@@ -75,12 +99,14 @@
   font-size: 16px;
   border-radius: 6px;
   height: 35px;
-  font-weight: 500;
+  font-weight: 600;
+  border-style: none;
+
 
   &:hover {
     color: $secondary-black;
     text-decoration: none;
-    font-weight: 600;
+    background-color: rgba(12, 43, 250, 0.08);
   }
 }
 

@@ -1,8 +1,9 @@
 <div style="display: inline">
   <%= form_tag products_path, method: :get do %>
-  <div style="display: inline" class="input-search">
-    <%= text_field_tag :query, params[:query], placeholder: "What are you looking for?"%>
+  <div style="display: inline">
+    <%= text_field_tag :query, params[:query], placeholder: "Search for Apple?", class: "input-search" %>
   </div>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+    <%= submit_tag "Search",  class: "primary-button-large" %>
+    <% end %>
 </div>
+
