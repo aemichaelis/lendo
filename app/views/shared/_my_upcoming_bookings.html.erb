@@ -1,0 +1,25 @@
+<div class="container">
+  <% if @bookings.count == 0 %>
+    <p>There are no Bookings yet.</p>
+  <% else %>
+    <ul>
+      <div class="product-card">
+      <% @bookings.each do |booking| %>
+        <div class="image image-small">
+          <%= cl_image_tag booking.product.photos[0].key, height: 200, width: 1650, crop: :fill %>
+          <div class="heart">
+            <i class="far fa-heart"></i>
+          </div>
+        </div>
+        <!-- card-description -->
+        <div class="product-card-description">
+          <h3><%= booking.product.title.truncate(25) %></h3>
+          <p><%= booking.product.description.truncate(70) %></p>
+          <p id="dates">Dates: <%= booking.check_in %> until <%= booking.check_out %></p>
+          <h4><span class="product-card-price">€<%= booking.product.price %></span>/day</h4>
+        </div>
+      </div>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

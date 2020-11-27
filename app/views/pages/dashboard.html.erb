@@ -17,16 +17,19 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="bookings-tab"><%= render 'shared/my_bookings' %></div>
-      <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab"><%= render 'shared/my_requests' %></div>
-      <div class="tab-pane fade" id="my_products" role="tabpanel" aria-labelledby="my_products-tab"><%= render 'shared/my_products' %></div>
-      <div class="tab-pane fade" id="favourites" role="tabpanel" aria-labelledby="favourites-tab"><%= render 'shared/favourites' %></div>
-    </div>
-  </div>
-  <div class="container-footer">
-    <div class="footer-name">
-      <img src="/assets/images/logo.png">
+      <div class="tab-pane fade show active" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+        <%= render 'shared/my_bookings' %>
+      </div>
 
+      <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+        <%= render 'shared/my_requests' %></div>
+
+      <div class="tab-pane fade" id="my_products" role="tabpanel" aria-labelledby="my_products-tab">
+        <%= render 'shared/my_products' %>
+      </div>
+
+      <div class="tab-pane fade" id="favourites" role="tabpanel" aria-labelledby="favourites-tab">
+        <%= render 'shared/favourites' %></div>
     </div>
   </div>
 </div>
