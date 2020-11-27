@@ -2,8 +2,9 @@
   <%= form_tag products_path, method: :get do %>
   <div style="display: inline">
     <%= text_field_tag :query, params[:query], placeholder: "Search for Apple?", class: "input-search" %>
+    <i class="fas fa-search search-icon"></i>
   </div>
-    <%= submit_tag "Search",  class: "primary-button-large" %>
+    <%= submit_tag "Search",  type: "hidden" %>
     <% end %>
 </div>
 
