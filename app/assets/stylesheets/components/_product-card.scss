@@ -11,6 +11,9 @@
   padding: 24px;
   justify-content: center;
   margin-bottom: 20px;
+  :hover {
+    text-decoration: none;
+  }
 }
 
 .image-small {
@@ -53,13 +56,16 @@
   h4 {
     font-size: 14px
   }
-  :hover{
-    text-decoration: none !important;
-  }
 }
 
 button {
   .fa-heart{
     line-height: 25px;
+  }
+  .fa-heart:before {
+    line-height: 25px;
+  }
+  .heart {
+    padding-top: 0px;
   }
 }
