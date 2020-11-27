@@ -14,7 +14,7 @@ $text-black: #333333;
 
 body {
   background-color: #FFDC9F;
-  
+
   a {
     color: $primary-color;
     text-decoration: none;
@@ -28,5 +28,9 @@ body {
 
 body#show-page {
   background-color: $background-pink;
+}
+
+body#index-page {
+  background-color: $background-green;
 }
 
