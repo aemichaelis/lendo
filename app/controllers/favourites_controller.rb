@@ -1,8 +1,8 @@
 class FavouritesController < ApplicationController
-  # def new
-  #   @product = Product.find(params[:product_id])
-  #   @favourite = Favourite.new
-  # end
+  def new
+    @product = Product.find(params[:product_id])
+    @favourite = Favourite.new
+  end
 
   def create
     @product = Product.find(params[:product_id])

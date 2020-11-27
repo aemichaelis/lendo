@@ -16,18 +16,21 @@
       </p>
       <div class="image-large">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <% @product.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item card-images <%= "active" if index==0 %> ">
-            <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
-            <% if policy(Favourite).create? %>
-              <%= simple_form_for([@product, @favourite]) do |f| %>
-              <h2><%= f.button :submit, class: "heart far fa-heart", value: "" %>
-                <i class="heart far fa-heart"></i></h2>
+          <div class="carousel-inner">
+            <% @product.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item card-images <%= "active" if index==0 %> ">
+              <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
+              <% if policy(Favourite).create? %>
+                <%= simple_form_for([@product, @favourite]) do |f| %>
+                <h2><%= f.button :submit, class: "heart far fa-heart", value: "" %>
+                  <i class="heart far fa-heart"></i></h2>
+                <% end %>
               <% end %>
+            </div>
             <% end %>
           </div>
-          <% end %>
+        </div>
+
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,7 +41,6 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
 
     <div class="container-product">
       <div class="row justify-content-between">
@@ -77,7 +79,7 @@
               </div>
             </div>
             <%= image_tag("map_fake.png", class: "image-medium") %>
-          <div class="reviews-container content-info">
+            <div class="reviews-container content-info">
             <h2 class="card-subheader"><i class="fas fa-star"> </i> Reviews (<%= @product.reviews.count %>) </h2>
             <% if @product.reviews.count == 0 %>
               <p>There are no Reviews yet.</p>
