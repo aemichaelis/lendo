@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:show, :index] do
     resources :reviews, only: [:new, :create]
   end
-  resources :favourites, only: [:index]
+  resources :favourites, only: [:index, :destroy]
   resources :products, only: [:show, :update, :destroy]
 
   get '/myproducts', to: 'products#myproducts', as: :myproducts

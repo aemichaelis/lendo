@@ -11,6 +11,10 @@
   padding: 24px;
   justify-content: center;
   margin-bottom: 20px;
+  :hover {
+    color: #010101;
+    text-decoration: none;
+  }
 }
 
 .image-small {
@@ -56,5 +60,12 @@
 button {
   .fa-heart{
     line-height: 25px;
+  }
+}
+
+.card-link {
+  :hover {
+    color: #010101;
+    text-decoration: none;
   }
 }
