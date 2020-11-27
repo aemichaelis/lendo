@@ -1,0 +1,30 @@
+.main-banner {
+  padding: 150px;
+}
+
+.banner-margin {
+  margin-bottom: 30px;
+}
+
+.main-text {
+  padding-bottom: 100px;
+}
+
+.background-green {
+  width: 100vw;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: $background-green;
+
+  h1 {
+    padding-bottom: 24px;
+  }
+}
+
+.banner-card-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}

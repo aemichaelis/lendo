@@ -1,8 +1,65 @@
-<div>
-  <div class="con-large">
-    <h1>Homepage</h1>
-    <p> NEW </p>
+<div class="con-large">
+  <div class="row justify-content-center main-banner">
+    <div class="col-12 text-center main-text">
+      <h1>Into Tech? Think twice before buying.</h1>
+      <p class="banner-margin">Rent any Tech-product from our large community</p>
+      <%= link_to "Discover Products", products_path, class: "primary-button banner-button" %>
+    </div>
   </div>
+</div>
+
+<div class="row justify-content-center main-banner background-green">
+  <div class="con-large">
+    <h1 class=""con-large">How it works:</h1>
+    <div class="banner-card-row">
+      <div class="feature-card col float-left">
+
+        <div class="row feature-padding">
+        <!-- Image -->
+          <%= image_tag("share.png", class: "image-circle") %>
+          <!-- card-description -->
+          <div class="product-card-description">
+            <h2>Our community</h2>
+            <p>Rent used Tech-products from our large community. Check out the newest products or save money? You decide!</p>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="feature-card col">
+
+        <div class="row feature-padding">
+        <!-- Image -->
+          <%= image_tag("save-02.png", class: "image-circle", crop: :fill) %>
+          <!-- card-description -->
+          <div class="product-card-description">
+            <h2>Save money</h2>
+            <p>Choose your minimum rental period. You can always switch to a longer one to save on your monthly payment.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="feature-card col float-right">
+
+      <div class="row feature-padding">
+        <!-- Image -->
+          <%= image_tag("grow-03.png", class: "image-circle", crop: :fill) %>
+          <!-- card-description -->
+          <div class="product-card-description">
+            <h2>Save the world!</h2>
+            <p>Consumer electronics can have large impact of the world we'll live in tomorrow. Small changes, huge impact!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 
 
