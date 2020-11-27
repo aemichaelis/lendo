@@ -1,36 +1,42 @@
 .confirm {
   background-color: #D8E5CF;
+
 }
 
-.column1 {
-  float:auto;
-  width: 70%;
-}
-.column3 {
-  width: auto;
-}
-
-.container2 {
-  width: 300px;
+.container-booking {
+  background-color: #D8E5CF;
+  padding-top: 54px;
+  margin-top: 54px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 154px;
 }
 
-.booking-header {
-  margin-top: 20px;
+.container-booking-form {
+  height: 384px;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  justify-content: center;
+  margin-right: 80px;
+  margin-left: auto;
 }
+
 
 .booking-title {
   margin-top: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 }
 
 .booking-period {
   border-bottom: 2px solid;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .booking-payment {
   border-bottom: 2px solid;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 
@@ -40,33 +46,30 @@
   color: black;
   padding: 14px 28px;
   font-size: 13px;
-  margin-bottom: 30px;
-}
-
-.form-control {
-  background-color: transparent;
-  margin-bottom: 30px;
+  border-radius: 6px;
+  margin-bottom: 40px;
 }
 
 .booking-message {
   border-bottom: 2px solid;
+  margin-bottom: 40px;
+}
+
+.form-control {
+  background-color: transparent;
+  margin-bottom: 40px;
 }
 
 .booking-info {
-  margin-top: 10px;
-}
-
-.booking-final {
-  margin-top: 10px;
-}
-
-.btn2 {
-  background-color: blue;
-  color: white;
-  font-size: 15px;
-  padding: 10px 60px;
+  margin-bottom: 40px;
 }
 
 .booking-save {
   font-size: 13px;
+  margin-bottom: 40px;
+}
+
+.bottom-line {
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
 }

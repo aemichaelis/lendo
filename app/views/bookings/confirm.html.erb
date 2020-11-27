@@ -1,66 +1,66 @@
   <body class="confirm">
-    <div class = "row">
-      <div class="column1">
-        <div class="container">
-          <div class="booking-header">
-            <h1>Confirm and Pay your Order </h1>
-          </div>
-          <div class="booking-title">
-            <h2> <%= @booking.product.title %> </h2>
-          </div>
-          <div class="booking-period">
-            <h3><strong> Renting Period </strong></h3>
-            <p><%= @booking.check_in %> , <%= @booking.check_out %></p>
-            <h3><strong> Days </strong></h3>
-            <p><%= pluralize (@booking.check_out - @booking.check_in).to_i , 'day'%></p>
-          </div>
-          <div class="booking-payment">
-            <h3><strong> Payment Method </strong></h3>
-            <div class="dropdow">
-              <button class="btn1 btn-block text-left dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Paypal
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Paypal</a>
-                <a class="dropdown-item" href="#">Visa</a>
-                <a class="dropdown-item" href="#">Mastercard</a>
-              </div>
+    <div class="container-booking">
+      <div class="row justify-content-between">
+        <div class="col-7">     <!-- colum1 -->
+          <h1>Confirm and Pay your Order </h1>  <!-- boooking-header -->
+          <div class="card-info">
+            <div class="booking-title">
+              <h2> <%= @booking.product.title %> </h2>
             </div>
-          </div>
-          <div class="booking-message">
-            <h3><strong> Send Message to Owner </strong></h3>
-            <textarea name="career[message]" class="form-control" tabindex="4"
-              placeholder="Write a message here" required></textarea>
-          </div>
-          <div class="booking-info">
-            <h3><strong> Safety Notice </strong></h3>
-            <p> With 4 speakers, Dolby Atmos technology, and a crisp LTPS display, this small screen delivers the full big-screen experience. And movie night can last all day thanks to 14 hours of battery life and fast charging. </p>
-          </div>
-          <div class="booking-final">
-            <p class="booking-save">
+            <div class="booking-period">
+              <h3><strong> Renting Period </strong></h3>
+              <p><%= @booking.check_in %> , <%= @booking.check_out %></p>
+            </div>
+            <div class="booking-period">
+              <h3><strong> Days </strong></h3>
+              <p><%= pluralize (@booking.check_out - @booking.check_in).to_i , 'day'%></p>
+            </div>
+            <div class="booking-payment">
+              <h3><strong> Payment Method </strong></h3>
+                <div class="dropdow">
+                  <button class="btn1 btn-block text-left dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Paypal
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Paypal</a>
+                    <a class="dropdown-item" href="#">Visa</a>
+                    <a class="dropdown-item" href="#">Mastercard</a>
+                  </div>
+                </div>
+            </div>
+            <div class="booking-message">
+              <h3><strong> Send Message to Owner </strong></h3>
+              <textarea name="career[message]" class="form-control" tabindex="4"
+              placeholder="Write a message..." required></textarea>
+            </div>
+            <div class="booking-info">
+              <h3><strong> Safety Notice </strong></h3>
+              <p> With 4 speakers, Dolby Atmos technology, and a crisp LTPS display, this small screen delivers the full big-screen experience. And movie night can last all day thanks to 14 hours of battery life and fast charging. </p>
+            </div>
+            <div>
+              <p class="booking-save">
               By selecting the button below, I agree to the House Rules, Safety Instructions, Cancellation Policy,
               Lendo’s Distance Policy and other policies. I also agree to pay the total amount shown including service charges.
               The terms of payment between you and the other user.
-            </p>
-            <%= link_to "Confirm and Pay", bookings_path, class: "btn2 btn-lg" %>
-          </div>
-        </div>
-      </div>
-      <div class="column2">
-        <div class="col-4">
-          <div class="container2 booking-form">
-            <div class="booking-info">
-              <h2 class="d-inline">€ <%= @booking.product.price %></h2><h3 class="d-inline"> per month</h3>
-              <h2 class="booking-title"><%= @booking.product.brand %> <%= @booking.product.model %></h2>
-              <p><%= @booking.product.description.truncate(35) %> </p>
-              <p><i class="far fa-check-circle"></i> <%= @booking.product.condition %></p>
-              <p><i class="fas fa-truck"></i> <%= @booking.product.delivery_method %></p>
+              </p>
+              <%= link_to "Confirm and Pay", bookings_path, class: "primary-button-large" %>
             </div>
-            <h3 class="spacing"><%= @booking.product.price %> € for 14 Days </h3>
-            <h3 class="bottom-line">incl. Service Fee (10%)</h3>
-            <h2 class="spacing">Total amount: 25,80 €</h2>
           </div>
         </div>
+          <div class="col-4">
+            <div class="container-booking-form">
+              <div class="booking-info">
+                <h2 class="d-inline">€ <%= @booking.product.price %></h2><h3 class="d-inline"> per month</h3>
+                <h2 class="booking-title"><%= @booking.product.brand %> <%= @booking.product.model %></h2>
+                <p><%= @booking.product.description.truncate(35) %> </p>
+                <p><i class="far fa-check-circle"></i> <%= @booking.product.condition %></p>
+                <p><i class="fas fa-truck"></i> <%= @booking.product.delivery_method %></p>
+              </div>
+              <h3 class="spacing"><%= @booking.product.price %> € for 30 Days </h3>
+              <h3 class="bottom-line">incl. Service Fee (10%)</h3>
+              <h2 class="spacing">Total amount: 19,80 €</h2>
+            </div>
+          </div>
       </div>
-     </div>
+    </div>
   </body>
