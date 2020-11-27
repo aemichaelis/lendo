@@ -4,7 +4,7 @@
   <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
   <%= b.radio_button + b.label {''} %>
   <% end %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
 </div>
 
