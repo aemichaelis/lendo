@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "clearing the db..."
 
+Favourite.destroy_all
+
 Review.destroy_all
 
 Booking.destroy_all
