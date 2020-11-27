@@ -1,4 +1,4 @@
-<div class="container">
+<div class="con-large">
   <ul>
   <% @favourites.each do |favourite| %>
     <li><%= link_to favourite.product.title, product_path(favourite.product) %></li>
