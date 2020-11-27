@@ -12,6 +12,7 @@
   justify-content: center;
   margin-bottom: 20px;
   :hover {
+    color: #010101;
     text-decoration: none;
   }
 }
@@ -96,4 +97,19 @@ button {
   .heart {
     padding-top: 0px;
   }
+}
+
+.card-link {
+  :hover {
+    color: #010101;
+    text-decoration: none;
+  }
+}
+
+.favourite {
+  height: 424px;
+}
+
+.product-card-buttons {
+  margin-top: 5px;
 }
