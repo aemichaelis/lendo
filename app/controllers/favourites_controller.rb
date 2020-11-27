@@ -11,7 +11,7 @@ class FavouritesController < ApplicationController
     @favourite.user = current_user
     authorize @favourite
     if @favourite.save
-      redirect_to products_path
+      redirect_to @product
       flash[:notice] = "Saved to favourites!"
     else
       render :new
