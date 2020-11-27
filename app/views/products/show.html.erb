@@ -1,13 +1,5 @@
 <body id="show-page">
   <div class="con-small row justify-content-center">
-      <% if policy(@product).edit? %>
-        <%= link_to "Edit", edit_product_path(@product), class: "btn btn-secondary" %>
-      <% end %>
-
-      <% if policy(@product).destroy? %>
-        <%= link_to "Delete Product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-      <% end %>
-
     <div>
       <h1 class="product-title"><%= @product.title %></h1>
       <p class="product-location"><i class="fas fa-map-marker-alt"></i> <% @product.address.split.last(2).each do |address| %>
