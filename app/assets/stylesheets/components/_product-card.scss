@@ -28,6 +28,7 @@
   right: 10px;
   height: 30px;
   width: 30px;
+  padding-top: 2px;
   .fa-heart{
     font-size: 12px;
     line-height: 30px;
@@ -42,6 +43,7 @@
 }
 
 .product-card-description {
+  color: #010101;
   h3 {
     font-size: 20px
   }
@@ -60,6 +62,12 @@
 button {
   .fa-heart{
     line-height: 25px;
+  }
+  .fa-heart:before {
+    line-height: 25px;
+  }
+  .heart {
+    padding-top: 0px;
   }
 }
 
