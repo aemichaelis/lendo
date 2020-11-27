@@ -21,4 +21,11 @@ class FavouritesController < ApplicationController
   def index
     @favourites = policy_scope(current_user.favourites)
   end
+
+  def destroy
+    @favourite = Favourite.find(params[:id])
+    authorize @favourite
+    @favourite.destroy
+    redirect_to favourites_path
+  end
 end

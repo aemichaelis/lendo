@@ -1,7 +1,6 @@
-<h1>Favourites</h1>
-
-<ul>
-  <% @favourites.each do |favourite| %>
-    <li><%= link_to favourite.product.title, product_path(favourite.product) %></li>
-  <% end %>
-</ul>
+<div class="con-large">
+  <h1>Favourites</h1>
+  <div class="container">
+    <%= render 'shared/favourites' %>
+  </div>
+</div>

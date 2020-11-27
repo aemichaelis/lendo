@@ -12,26 +12,38 @@
             <% @product.photos.each_with_index do |photo, index| %>
             <div class="carousel-item card-images <%= "active" if index==0 %> ">
               <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
-              <% if policy(Favourite).create? %>
-                <%= simple_form_for([@product, @favourite]) do |f| %>
-                <h2><%= f.button :submit, class: "heart far fa-heart", value: "" %>
-                  <i class="heart far fa-heart"></i></h2>
+              <% if user_signed_in? %>
+                <% if current_user.favourites.find { |favourite| favourite.product_id == @product.id } %>
+                  <div class="heart">
+                    <i class="fa fa-heart"></i>
+                  </div>
+                <% else %>
+                  <%= simple_form_for([@product, @favourite]) do |f| %>
+                    <%= button_tag type: 'submit', class: "heart" do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% end %>
                 <% end %>
+              <% else %>
+                <div class="heart">
+                  <i class="far fa-heart"></i>
+                </div>
               <% end %>
             </div>
             <% end %>
+
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
 
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
 
     <div class="container-product">

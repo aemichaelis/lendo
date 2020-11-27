@@ -12,8 +12,37 @@
   justify-content: center;
   margin-bottom: 20px;
   :hover {
+    color: #010101;
     text-decoration: none;
   }
+}
+
+.feature-card {
+  height: 380px;
+  width: 359px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature-padding {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 14px;
+
+  h2 {
+    padding-top: 40px;
+  }
+}
+
+.image-circle {
+  width: 167px;
+  height: 167px;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
 .image-small {
@@ -68,4 +97,19 @@ button {
   .heart {
     padding-top: 0px;
   }
+}
+
+.card-link {
+  :hover {
+    color: #010101;
+    text-decoration: none;
+  }
+}
+
+.favourite {
+  height: 424px;
+}
+
+.product-card-buttons {
+  margin-top: 5px;
 }
