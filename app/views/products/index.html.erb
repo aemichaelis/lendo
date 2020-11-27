@@ -1,54 +1,56 @@
-<div class="con-large">
-  <div class="container pt-4">
-    <h1 class="text-center prompt mt-3">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
-  </div>
-</div>
-<div class="container-content">
-  <div class="sidebar">
-    <div class="sidebar-menu">
-
+<body id="index-page">
+  <div class="con-large">
+    <div class="container pt-4">
+      <h1 class="text-center prompt mt-3">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
     </div>
   </div>
-  <div class="product-card-container">
-    <div class="row product-card-row">
-      <% @products.each do |product| %>
-        <div class="col-lg-4 col-sm-6">
-          <div class="product-card">
-            <!-- Image -->
-            <div class="image image-small">
-              <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
-              <!-- Check if user is signed in -->
-                <% if user_signed_in? %>
-                <!-- If signed in see if product is favourited and display accordingly -->
-                  <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
-                    <div class="heart">
-                      <i class="fa fa-heart"></i>
-                    </div>
-                  <% else %>
-                    <%= simple_form_for([product, @favourite]) do |f| %>
-                      <%= button_tag type: 'submit', class: "heart" do %>
-                        <i class="far fa-heart"></i>
+  <div class="container-content">
+    <div class="sidebar">
+      <div class="sidebar-menu">
+        <%= image_tag("menu-fake.png") %>
+      </div>
+    </div>
+    <div class="product-card-container">
+      <div class="row product-card-row">
+        <% @products.each do |product| %>
+          <div class="col-lg-4 col-sm-6">
+            <div class="product-card">
+              <!-- Image -->
+              <div class="image image-small">
+                <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+                <!-- Check if user is signed in -->
+                  <% if user_signed_in? %>
+                  <!-- If signed in see if product is favourited and display accordingly -->
+                    <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
+                      <div class="heart">
+                        <i class="fa fa-heart"></i>
+                      </div>
+                    <% else %>
+                      <%= simple_form_for([product, @favourite]) do |f| %>
+                        <%= button_tag type: 'submit', class: "heart" do %>
+                          <i class="far fa-heart"></i>
+                        <% end %>
                       <% end %>
                     <% end %>
+                  <% else %>
+                    <div class="heart">
+                      <i class="far fa-heart"></i>
+                    </div>
                   <% end %>
-                <% else %>
-                  <div class="heart">
-                    <i class="far fa-heart"></i>
-                  </div>
-                <% end %>
-            </div>
-            <!-- card-description -->
-            <%= link_to product_path(product) do %>
-              <div class="product-card-description">
-                <h3><%= product.title.truncate(25) %></h3>
-                <p> <%= product.description.truncate(70) %> </p>
-                <h4><span class="product-card-price">€ <%= product.price %></span> per Month</h4>
               </div>
-            <% end %>
+              <!-- card-description -->
+              <%= link_to product_path(product) do %>
+                <div class="product-card-description">
+                  <h3><%= product.title.truncate(25) %></h3>
+                  <p> <%= product.description.truncate(70) %> </p>
+                  <h4><span class="product-card-price">€ <%= product.price %></span> per Month</h4>
+                </div>
+              <% end %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</body>
 
