@@ -16,20 +16,33 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.product = @product
     authorize @booking
+    if params[:commit] == "Reserve"
+      redirect_to confirm_path(product_id: params[:product_id], booking: booking_params)
+    end
+  end
+
+  def save_booking
+    @product = Product.find(params[:product_id])
+    @booking = Booking.new(check_in: params[:check_in], check_out: params[:check_out])
+    @booking.user = current_user
+    @booking.product = @product
+    authorize @booking
     if @booking.save
       @chatroom = Chatroom.create(name: @booking.product.title)
       @chatroom.booking = @booking
       @chatroom.p1_id = @booking.user.id
       @chatroom.p2_id = @booking.product.user.id
       @chatroom.save
-      redirect_to confirm_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
   end
 
   def confirm
-    @booking = Booking.find(params[:id])
+    @product = Product.find(params[:product_id])
+    @booking = Booking.new(booking_params)
+    authorize @product
     authorize @booking
   end
 
