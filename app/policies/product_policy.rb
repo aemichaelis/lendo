@@ -24,4 +24,8 @@ class ProductPolicy < ApplicationPolicy
   def myproducts?
     true
   end
+
+  def confirm?
+    true
+  end
 end
