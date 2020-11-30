@@ -1,10 +1,23 @@
 <div class="con-large">
   <h1>Messages</h1>
-  <div class="container">
-    <ul>
+  <div class="container chatrooms">
       <% @chatrooms.each do |chatroom| %>
-        <li><%= link_to chatroom.booking.product.title, chatroom_path(chatroom) %></li>
+        <%= link_to chatroom_path(chatroom), class: "chat-index" do %>
+          <div class="chatlink">
+            <div class="chat-partner-info">
+              <%= chatroom.booking.user.email %> <br>
+              <%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %>
+            </div>
+            <div class="chat-product-info">
+              <h3><%= chatroom.booking.product.title.truncate(25) %></h3>
+              <p> Booking dates: <%= chatroom.booking.check_in %> to <%= chatroom.booking.check_out %></p>
+              <p>"<%= chatroom.messages.last.content %>"</p>
+            </div>
+            <div class="image image-small chat-product-pic">
+              <%= cl_image_tag chatroom.booking.product.photos[0].key, height: 180, width: 255, crop: :fill %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
   </div>
 </div>
