@@ -11,6 +11,8 @@ Favourite.destroy_all
 
 Review.destroy_all
 
+Chatroom.destroy_all
+
 Booking.destroy_all
 
 Product.destroy_all
