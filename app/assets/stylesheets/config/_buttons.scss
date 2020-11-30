@@ -88,6 +88,21 @@
   }
 }
 
+.secondary-status-button {
+  text-decoration: none;
+  color: $secondary-black;
+  background-color: transparent;
+  border: 1px solid $secondary-black;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  height: 35px;
+  font-weight: 500;
+}
+
 .other-button-unactive {
   text-decoration: none;
   color: $secondary-black;
@@ -102,6 +117,13 @@
   font-weight: 600;
   border-style: none;
 
+  a {
+    color: $secondary-black;
+    text-decoration: none;
+    :hover {
+      color: $secondary-black;
+    }
+  }
 
   &:hover {
     color: $secondary-black;
