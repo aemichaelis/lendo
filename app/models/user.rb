@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :products
   has_many :favourites
   has_many :reviews, through: :bookings
+
+  has_many :author_chatrooms, foreign_key: :p1_id, class_name: 'chatroom'
+  has_many :receiver_chatrooms, foreign_key: :p2_id, class_name: 'chatroom'
+
 end

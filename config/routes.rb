@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   resources :favourites, only: [:index, :destroy]
   resources :products, only: [:show, :update, :destroy]
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: :create
+  end
 
   get '/myproducts', to: 'products#myproducts', as: :myproducts
   put '/myproducts', to: 'products#myproducts', as: :myproduct
