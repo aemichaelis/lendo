@@ -1,0 +1,29 @@
+<div style="display: inline" >
+  <%= form_tag products_path, method: :get do %>
+  <div style="display: inline" >
+    <%#= text_field_tag :delivery_method, params[:delivery_method] %>
+    <div style="display: inline">
+      <%= text_field_tag :price_min, params[:price_min], placeholder: "1 €" %>
+    </div>
+
+    <div style="display: inline">
+      <%= text_field_tag :price_max, params[:price_max], placeholder: "150 €" %>
+    </div>
+
+    <div style="display: inline">
+      <%= text_field_tag :delivery_method, params[:delivery_method], placeholder: "Flexible" %>
+    </div>
+    <div style="display: inline">
+      <%= text_field_tag :condition, params[:category], placeholder: "Brand New" %>
+    </div>
+    <div style="display: inline">
+      <%= text_field_tag :brand, params[:brand], placeholder: "Apple" %>
+    </div>
+
+  </div>
+  <div style="display: inline">
+    <%= submit_tag "Search", class: "primary-button"%>
+  </div>
+  <% end %>
+</div>
+

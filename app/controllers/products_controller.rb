@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = find_products
+    @products = filter_products
     @favourite = Favourite.new
   end
 
@@ -65,6 +66,16 @@ class ProductsController < ApplicationController
     @products = policy_scope(Product.order("created_at DESC").all)
     @products = policy_scope(@products.where(sql_query, query: "%#{params[:query]}%")) if params[:query].present?
     @products = policy_scope(@products.where('products.address LIKE ?', "%#{params[:address]}%")) if params[:address].present?
+    @products
+  end
+
+  def filter_products
+    @products = policy_scope(Product.order("created_at DESC").all)
+    @products = @products.by_min_price(params[:price_min]) if params[:price_min].present?
+    @products = @products.by_max_price(params[:price_max]) if params[:price_max].present?
+    @products = @products.by_delivery_method(params[:delivery_method]) if params[:delivery_method].present?
+    @products = @products.by_condition(params[:condition]) if params[:condition].present?
+    @products = @products.by_brand(params[:brand]) if params[:brand].present?
     @products
   end
 

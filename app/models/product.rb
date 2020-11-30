@@ -10,4 +10,10 @@ class Product < ApplicationRecord
   validates :title, :description, :address, :price, :model, :brand, presence: true
   validates :delivery_method, presence: true, inclusion: { in: ['Pick up', 'Delivery', 'Flexible'] }
   validates :category, presence: true, inclusion: { in: categories }
+
+  scope :by_min_price, ->(price) { where("price >= ?", price) }
+  scope :by_max_price, ->(price) { where("price <= ?", price) }
+  scope :by_delivery_method, ->(delivery_method) { where("delivery_method ILIKE ?", delivery_method) }
+  scope :by_condition, ->(condition) { where("condition ILIKE ?", condition) }
+  scope :by_brand, ->(brand) { where("brand ILIKE ?", brand) }
 end
