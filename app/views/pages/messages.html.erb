@@ -11,6 +11,7 @@
             <div class="chat-product-info">
               <h3><%= chatroom.booking.product.title.truncate(25) %></h3>
               <p> Booking dates: <%= chatroom.booking.check_in %> to <%= chatroom.booking.check_out %></p>
+              <p>Last message:</p>
               <p>"<%= chatroom.messages.last.content %>"</p>
             </div>
             <div class="image image-small chat-product-pic">
