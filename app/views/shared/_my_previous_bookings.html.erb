@@ -25,7 +25,7 @@
             <div>
               <button class="booking-card-button-width secondary-button"> <%= link_to "Leave a review", new_booking_review_path(booking) %>
               </button>
-              <button class="booking-card-button-width secondary-button-unactive">Send message Link!
+              <button class="booking-card-button-width secondary-button-unactive"><%= link_to 'Message', chatroom_path(booking.chatroom) %>
               </button>
               <button class="booking-card-button-width other-button-unactive"> <%= link_to "View", product_path(booking.product) %>
               </button>

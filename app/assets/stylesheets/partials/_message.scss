@@ -1,0 +1,27 @@
+.receiver {
+  background-color: $background-yellow;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding-left: 10px;
+  margin-bottom: 48px;
+  width: auto;
+}
+
+
+.author {
+  text-align: right;
+  background-color: $background-green;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding-right: 10px;
+  margin-bottom: 48px;
+  width: auto;
+}
+
+.container-messages {
+  width: auto;
+  padding-top: 48px;
+  margin-right: 24px;
+  margin-left: 24px;
+}
+
