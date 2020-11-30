@@ -17,6 +17,11 @@ class BookingsController < ApplicationController
     @booking.product = @product
     authorize @booking
     if @booking.save
+      @chatroom = Chatroom.create(name: @booking.product.title)
+      @chatroom.booking = @booking
+      @chatroom.p1_id = @booking.user.id
+      @chatroom.p2_id = @booking.product.user.id
+      @chatroom.save
       redirect_to confirm_path(@booking)
     else
       render :new
