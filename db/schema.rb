@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_114242) do
     t.integer "p2_id"
     t.bigint "booking_id"
     t.index ["booking_id"], name: "index_chatrooms_on_booking_id"
-    t.index ["p1_id", "p2_id"], name: "index_chatrooms_on_p1_id_and_p2_id", unique: true
     t.index ["p1_id"], name: "index_chatrooms_on_p1_id"
     t.index ["p2_id"], name: "index_chatrooms_on_p2_id"
   end
