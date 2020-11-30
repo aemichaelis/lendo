@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:show, :index] do
     resources :reviews, only: [:new, :create]
+    resources :chatrooms, only: [:new, :create]
   end
   resources :favourites, only: [:index, :destroy]
   resources :products, only: [:show, :update, :destroy]
