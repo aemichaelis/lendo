@@ -26,21 +26,9 @@ class ProductsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      sql_query = " \
-        products.title @@ :query \
-        OR products.description @@ :query \
-        OR products.category @@ :query \
-        OR products.brand @@ :query \
-        OR products.model @@ :query "
-      @products = policy_scope(Product.where(sql_query, query: "%#{params[:query]}%"))
-    else
-      @products = policy_scope(Product.order("created_at DESC").all)
-    end
-     # @products = policy_scope(Product)
-     @favourite = Favourite.new
+    @products = find_products
+    @favourite = Favourite.new
   end
-
 
   def myproducts
     @products = policy_scope(Product.where(user: current_user))
@@ -66,6 +54,19 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def find_products
+    sql_query = " \
+        products.title @@ :query \
+        OR products.description @@ :query \
+        OR products.category @@ :query \
+        OR products.brand @@ :query \
+        OR products.model @@ :query "
+    @products = policy_scope(Product.order("created_at DESC").all)
+    @products = policy_scope(@products.where(sql_query, query: "%#{params[:query]}%")) if params[:query].present?
+    @products = policy_scope(@products.where('products.address LIKE ?', "%#{params[:address]}%")) if params[:address].present?
+    @products
+  end
 
   def product_params
     params.require(:product).permit(:title, :description, :address, :category, :price, :accessories, :condition, :brand, :model, :delivery_method, :photos)
