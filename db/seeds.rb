@@ -291,6 +291,7 @@ booking = Booking.new(
   check_in: "2020-11-24",
   check_out: "2020-11-26",
   confirmed: "pending",
+  status: 0,
   )
 booking.product = product_10
 booking.user = user_second
@@ -301,6 +302,7 @@ booking = Booking.new(
   check_in: "2020-12-02",
   check_out: "2021-12-09",
   confirmed: "pending",
+  status: 0,
   )
 booking.product = product_09
 booking.user = user_second
