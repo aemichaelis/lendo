@@ -9,4 +9,9 @@ class PagesController < ApplicationController
     @bookings = current_user.bookings
     @favourites = current_user.favourites
   end
+
+  def messages
+    @chatrooms = Chatroom.where(p1_id: current_user.id) + Chatroom.where(p2_id: current_user.id)
+  end
+
 end
