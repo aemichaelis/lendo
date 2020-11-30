@@ -1,10 +1,10 @@
 <div>
-  <% if @bookings.empty? %>
+  <% if @bookings.upcoming.empty? %>
     <p>You don't have any bookings yet.</p>
     <%= link_to "Browse Products", products_path, class: 'primary-button'  %>
   <% else %>
     <div class="row bookings-row">
-      <% @bookings.each do |booking| %>
+      <% @bookings.upcoming.each do |booking| %>
         <div class="col-lg-3 col-sm-5">
           <div class="product-card-bookings bookings">
             <!-- Image -->
