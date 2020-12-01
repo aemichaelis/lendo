@@ -305,6 +305,12 @@ booking = Booking.new(
   )
 booking.product = product_10
 booking.user = user_second
+chatroom1 = Chatroom.create(name: booking.product.title)
+chatroom1.booking = booking
+chatroom1.p1_id = booking.user.id
+chatroom1.p2_id = booking.product.user.id
+chatroom1.save
+
 
 booking.save!
 
@@ -316,6 +322,11 @@ booking = Booking.new(
   )
 booking.product = product_09
 booking.user = user_second
+chatroom2 = Chatroom.create(name: booking.product.title)
+chatroom2.booking = booking
+chatroom2.p1_id = booking.user.id
+chatroom2.p2_id = booking.product.user.id
+chatroom2.save
 
 booking.save!
 
