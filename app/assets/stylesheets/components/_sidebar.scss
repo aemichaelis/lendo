@@ -1,6 +1,21 @@
 .sidebar-menu {
   padding-left: 80px;
-  img {
-    width: 222px;
+  padding-top: 70px;
+}
+
+.price input {
+  height: 41px;
+  width: 92px;
+  padding: 12px;
+  margin-right: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(51, 51, 51, 0.54);
+  border-radius: 6px;
+  color: $text-black;
+}
+
+.sidebar-headers {
+  p {
+    padding-bottom: 12px;
   }
 }

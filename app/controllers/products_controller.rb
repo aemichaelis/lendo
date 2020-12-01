@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
   def index
     @products = find_products
     @products = filter_products
+
     @favourite = Favourite.new
   end
 
@@ -75,7 +76,7 @@ class ProductsController < ApplicationController
     @products = @products.by_max_price(params[:price_max]) if params[:price_max].present?
     @products = @products.by_delivery_method(params[:delivery_method]) if params[:delivery_method].present?
     @products = @products.by_condition(params[:condition]) if params[:condition].present?
-    @products = @products.by_brand(params[:brand]) if params[:brand].present?
+    @products = @products.by_brand(params[:product][:brand][1]) if params[:product].present?
     @products
   end
 
