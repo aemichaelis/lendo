@@ -7,6 +7,7 @@ class Booking < ApplicationRecord
   has_one :chatroom, :dependent => :destroy
 
   validates :check_in, :check_out, presence: true
+
   validate :end_date_after_start_date
 
   private
