@@ -9,8 +9,8 @@ class MessagesController < ApplicationController
       ChatroomChannel.broadcast_to(
         @chatroom,
         author_id: current_user.id,
-        author_message: render_to_string(partial: "message", locals: { message: @message, author: true }),
-        receiver_message: render_to_string(partial: "message", locals: { message: @message, author: false })
+        author_message: render_to_string(partial: "author_message", locals: { message: @message, author: true }),
+        receiver_message: render_to_string(partial: "receiver_message", locals: { message: @message, author: false })
       )
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else

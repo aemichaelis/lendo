@@ -1,6 +1,9 @@
-<div class="message-container-receiver" id="message-<%= message.id %>">
-  <i class="receiver">
-    <span><%= message.user.email %></span>
+<div class="receiver">
+  <div class="message-avatar">
+    <%= image_tag (message.user.avatar), size: "50x50", class: "messages-avatar" %>
+  </div>
+  <i>
+    <span><%= message.user.username %></span>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </i>
   <p> <strong><%= message.content %></strong> </p>

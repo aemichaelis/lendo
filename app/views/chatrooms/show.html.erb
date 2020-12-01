@@ -5,11 +5,23 @@
       <div class="container-messages">
         <% @chatroom.messages.each do |message| %>
           <div class="<%= message.user == current_user ? 'author' : 'receiver' %>" id="message-<%= message.id %>">
-            <i>
-              <span><%= message.user.email %></span>
-              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-            </i>
-            <p><%= message.content %></p>
+            <div class="message-avatar">
+              <%= image_tag (message.user.avatar), size: "40x40" %>
+            </div>
+            <div class="message-text">
+              <i>
+                <strong><span>
+                  <% if message.user == current_user %>
+                    You
+                  <% else %>
+                    <%= message.user.username %>
+                  <% end %>
+
+                </span></strong>
+                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
+              <p><%= message.content %></p>
+            </div>
           </div>
         <% end %>
       </div>
