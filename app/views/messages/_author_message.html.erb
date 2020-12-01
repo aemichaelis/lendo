@@ -1,7 +1,14 @@
-<div class="author" id="message-<%= message.id %>">
-  <i>
-    <span><%= message.user.email %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <p><%= message.content %></p>
+<div class="author">
+  <div class="message-text">
+    <i>
+      <span><%= message.user.username %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </i>
+    <p><%= message.content %></p>
+  </div>
+  <div class="message-avatar">
+    <%= image_tag (message.user.avatar), size: "50x50", class: "messages-avatar" %>
+  </div>
 </div>
+
+
