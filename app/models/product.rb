@@ -16,4 +16,5 @@ class Product < ApplicationRecord
   scope :by_delivery_method, ->(delivery_method) { where("delivery_method ILIKE ?", delivery_method) }
   scope :by_condition, ->(condition) { where("condition ILIKE ?", condition) }
   scope :by_brand, ->(brand) { where("brand ILIKE ?", brand) }
+  scope :by_category, ->(category) { where("category ILIKE ?", category) }
 end

@@ -77,6 +77,7 @@ class ProductsController < ApplicationController
       @products = @products.by_delivery_method(params[:product][:delivery_method]) if params[:product][:delivery_method].present?
       @products = @products.by_condition(params[:product][:condition]) if params[:product][:condition].present?
       @products = @products.by_brand(params[:product][:brand]) if params[:product][:brand].present?
+      @products = @products.by_category(params[:product][:category]) if params[:product][:category].present?
     end
     @products
   end

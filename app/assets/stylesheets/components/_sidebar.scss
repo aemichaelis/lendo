@@ -1,12 +1,20 @@
 .sidebar-menu {
   padding-left: 80px;
-  padding-top: 70px;
+  padding-top: 100px;
+}
+
+.form-sticky {
+  display: block;
+  position: relative;
+  position: sticky;
+  top: 100px;
 }
 
 .price input {
   height: 41px;
   width: 100px;
   padding: 12px;
+  margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(51, 51, 51, 0.54);
   border-radius: 6px;
@@ -39,8 +47,8 @@
 }
 
 .sidebar-headers {
-  margin-top: 24px;
-  margin-bottom: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
   p {
     padding-bottom: 10px;
   }
@@ -49,7 +57,31 @@
 .down-icon {
   position: relative;
   color: $primary-color;
-  right: -211px;
+  right: -186px;
   top: -33px;
   font-size: 12px;
+}
+
+.side-button {
+  color: white;
+  background-color: $primary-color;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  height: 41px;
+  width: 100%;
+  font-weight: 500;
+  text-decoration: none;
+  border-color: $primary-color;
+  border-style: none;
+
+  &:hover {
+    background-color: $primary-color;
+    opacity: 0.54;
+    color: white;
+    text-decoration: none;
+  }
 }
