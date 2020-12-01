@@ -5,6 +5,16 @@
   padding-left: 10px;
   margin-bottom: 48px;
   width: auto;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 100px;
+  height: auto;
+  .message-text {
+    margin-left: 20px;
+  }
+  .message-avatar {
+    margin-left: 20px;
+  }
 }
 
 
@@ -16,6 +26,16 @@
   padding-right: 10px;
   margin-bottom: 48px;
   width: auto;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 100px;
+  height: auto;
+  .message-avatar {
+    margin-right: 20px;
+  }
+  .message-text {
+    margin-right: 20px;
+  }
 }
 
 .container-messages {
@@ -25,3 +45,17 @@
   margin-left: 24px;
 }
 
+.message-text {
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+.message-avatar {
+  margin-top: 10px;
+  img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+}
