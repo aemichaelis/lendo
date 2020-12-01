@@ -26,6 +26,14 @@ user = User.create(
   username: "Paul"
   password: "testing",
   )
+user.avatar.attach(
+  io: File.open(
+    Rails.root.join(
+      'app', 'assets', 'images', 'little_paul.jpeg'
+    )
+  ), filename: 'little_paul.jpeg',
+  content_type: 'image/png'
+)
 
 product = Product.new(
   title: "almost new iPhone 8",
