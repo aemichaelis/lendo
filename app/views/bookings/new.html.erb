@@ -1,5 +1,15 @@
 <div class="con-large">
-  <%= render 'shared/booking_form' %>
+  <div class="container booking-form">
+    <div class="booking-info">
+      <h1> Please confirm you dates </h1>
+        <p> The <strong>start-date</strong> cannot be before the <strong>end-date</strong><p>
+    <div class="form-wrapper">
+      <%= simple_form_for([@product, @booking]) do |f| %>
+        <%= f.input :check_in, placeholder: "01. 12. 2020", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :check_out, placeholder: "05. 12. 2020", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.button :submit, "Reserve", :name => "commit", class: "btn btn-primary form-control submit" %>
+      <% end %>
+    </div>
 </div>
 
 
