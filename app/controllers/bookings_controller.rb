@@ -17,7 +17,12 @@ class BookingsController < ApplicationController
     @booking.product = @product
     authorize @booking
     if params[:commit] == "Reserve"
-      redirect_to confirm_path(product_id: params[:product_id], booking: booking_params)
+      if params[:booking][:check_in].blank? || params[:booking][:check_out].blank?
+        redirect_to product_path(@product)
+        flash[:notice] = "Please enter a valid date"
+      else
+        redirect_to confirm_path(product_id: params[:product_id], booking: booking_params)
+      end
     end
   end
 
@@ -34,6 +39,7 @@ class BookingsController < ApplicationController
       @chatroom.p2_id = @booking.product.user.id
       @chatroom.save
       redirect_to bookings_path
+      flash[:notice] = "Booking request was successful!"
     else
       render :new
     end
