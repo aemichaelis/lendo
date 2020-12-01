@@ -5,17 +5,46 @@
 
 .price input {
   height: 41px;
-  width: 92px;
+  width: 100px;
   padding: 12px;
-  margin-right: 12px;
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(51, 51, 51, 0.54);
   border-radius: 6px;
   color: $text-black;
 }
 
-.sidebar-headers {
-  p {
-    padding-bottom: 12px;
+.sidebar-select {
+  select::-ms-expand {
+       display: none;
   }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 237px;
+    height: 41px;
+    padding-left: 12px;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(51, 51, 51, 0.54);
+    border-radius: 6px;
+    color: $text-black;
+  }
+}
+
+.sidebar-headers {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+.down-icon {
+  position: relative;
+  color: $primary-color;
+  right: -211px;
+  top: -33px;
+  font-size: 12px;
 }

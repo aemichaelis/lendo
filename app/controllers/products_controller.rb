@@ -74,9 +74,9 @@ class ProductsController < ApplicationController
     @products = policy_scope(Product.order("created_at DESC").all)
     @products = @products.by_min_price(params[:price_min]) if params[:price_min].present?
     @products = @products.by_max_price(params[:price_max]) if params[:price_max].present?
-    @products = @products.by_delivery_method(params[:delivery_method]) if params[:delivery_method].present?
-    @products = @products.by_condition(params[:condition]) if params[:condition].present?
-    @products = @products.by_brand(params[:product][:brand][1]) if params[:product].present?
+    @products = @products.by_delivery_method(params[:product][:delivery_method]) if params[:product].present?
+    @products = @products.by_condition(params[:product][:condition]) if params[:product].present?
+    @products = @products.by_brand(params[:product][:brand]) if params[:product].present?
     @products
   end
 

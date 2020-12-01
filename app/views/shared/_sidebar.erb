@@ -2,32 +2,41 @@
   <%= form_tag products_path, :method => 'get' do |f| %>
   <div style="display: inline" >
     <%#= text_field_tag :delivery_method, params[:delivery_method] %>
-    <p class="sidebar-headers"><i class="fas fa-shopping-bag"></i> Price</p>
+    <p class="sidebar-headers"><i class="far fa-check-circle"></i> Price</p>
     <div class="price" style="display: inline">
-      <%#= text_field_tag :price_min, params[:price_min], placeholder: "1 €" %>
+      <%= text_field_tag :price_min, params[:price_min], placeholder: "1 €" %>
     </div>
 
     <div class="price" style="display: inline">
-      <%#= text_field_tag :price_max, params[:price_max], placeholder: "150 €" %>
+      <%= text_field_tag :price_max, params[:price_max], placeholder: "150 €" %>
     </div>
 
-    <div style="display: inline">
-      <%= collection_check_boxes(:product, :brand, Product.all, :brand, :brand) %>
+    <p class="sidebar-headers"><i class="far fa-check-circle"></i> Brand</p>
+    <div class="sidebar-select">
+      <%= collection_select(:product, :brand, Product.all, :brand, :brand) %>
+      <i class="fas fa-chevron-down down-icon"></i>
+      <%#= collection_check_boxes(:product, :brand, Product.all, Product.all.distinct.pluck(:brand), :brand) %>
       <%#= text_field_tag :brand, params[brand], placeholder: "Apple" %>
     </div>
 
-    <div style="display: inline">
+    <p class="sidebar-headers"><i class="far fa-check-circle"></i> Condition</p>
+    <div class="sidebar-select">
+      <%= collection_select(:product, :condition, Product.all, :condition, :condition) %>
+      <i class="fas fa-chevron-down down-icon"></i>
+      <%#= collection_check_boxes(:product, :condition, Product.all, :condition, :condition) %>
       <%#= f.check_box(:condition, { :multiple => true}) %>
     </div>
 
-    <div style="display: inline">
+    <p class="sidebar-headers"><i class="far fa-check-circle"></i> Delivery</p>
+    <div class="sidebar-select">
+      <%= collection_select(:product, :delivery_method, Product.all, :delivery_method, :delivery_method) %>
+      <i class="fas fa-chevron-down down-icon"></i>
+      <%#= collection_check_boxes(:product, :delivery_method, Product.all, :delivery_method, :delivery_method) %>
       <%#= text_field_tag :delivery_method, params[:delivery_method], placeholder: "Flexible" %>
     </div>
+     <%= submit_tag "Search", class: "secondary-button-unactive sidebar-headers"%>
+  </div>
 
-  </div>
-  <div style="display: inline">
-    <%= submit_tag "Search", class: "primary-button"%>
-  </div>
   <% end %>
 </div>
 
