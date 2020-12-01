@@ -4,6 +4,13 @@ class Product < ApplicationRecord
   condition = ['Like New', 'Normal Wear', 'Minor Cosmetic Faults', 'Minor Functional Faults']
   belongs_to :user
   has_many :bookings
+
+  def unavailable_dates
+    bookings.pluck(:check_in, :check_out).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
   has_many :favourites
   has_many :reviews, through: :bookings, :dependent => :destroy
   has_many_attached :photos
@@ -17,4 +24,5 @@ class Product < ApplicationRecord
   scope :by_condition, ->(condition) { where("condition ILIKE ?", condition) }
   scope :by_brand, ->(brand) { where("brand ILIKE ?", brand) }
   scope :by_category, ->(category) { where("category ILIKE ?", category) }
+
 end

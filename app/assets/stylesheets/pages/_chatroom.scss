@@ -1,0 +1,41 @@
+#messages {
+  width: 100%;
+  border: 1px solid #010101;
+  border-radius: 6px;
+  min-height: 500px;
+  height: auto;
+  justify-content: center;
+  padding-top: 48px;
+}
+
+.chatlink {
+  position: relative;
+  color: #010101;
+  display: flex;
+  justify-content: space-around;
+  width: auto;
+  min-width: 80%;
+  height: auto;
+  min-height: 100px;
+  border-radius: 6px;
+  border: 1px solid #010101;
+  padding-top: 24px;
+  margin-bottom: 48px;
+  h3 {
+    font-size: 24px;
+  }
+  .chat-partner-info & .chat-product-info{
+    display: block;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.chat-index:hover {
+  text-decoration: none;
+}
+
+.chatrooms {
+  padding-top: 48px
+}

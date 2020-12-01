@@ -1,25 +1,38 @@
-<div class="container">
-  <% if @bookings.count == 0 %>
-    <p>There are no Bookings yet.</p>
+<div>
+  <% if @bookings.pending.empty? %>
+    <p>You don't have any bookings yet.</p>
+    <%= link_to "Browse Products", products_path, class: 'primary-button'  %>
   <% else %>
-    <ul>
-      <div class="product-card">
-      <% @bookings.each do |booking| %>
-        <div class="image image-small">
-          <%= cl_image_tag booking.product.photos[0].key, height: 200, width: 1650, crop: :fill %>
-          <div class="heart">
-            <i class="far fa-heart"></i>
+    <div class="row bookings-row">
+      <% @bookings.pending.each do |booking| %>
+        <div class="col-lg-3 col-sm-5">
+          <div class="product-card-bookings bookings">
+            <!-- Image -->
+            <div class="image image-small">
+              <%= cl_image_tag booking.product.photos[0].key, height: 180, width: 255, crop: :fill %>
+            </div>
+            <!-- card-description -->
+            <div class="product-card-description">
+              <h2>
+                <%= booking.product.title.truncate(25) %>
+              </h2>
+              <p>
+                <%= booking.product.description.truncate(70) %>
+              </p>
+              <h2 id="dates"><%= booking.check_in %> – <%= booking.check_out %>
+              </h2>
+            </div>
+            <div>
+              <button class="booking-card-button-width secondary-status-button">Pending…
+              </button>
+              <button class="booking-card-button-width secondary-button"> Send message Link!
+              </button>
+              <button class="booking-card-button-width other-button-unactive"> <%= link_to "View", product_path(booking.product) %>
+              </button>
+            </div>
           </div>
         </div>
-        <!-- card-description -->
-        <div class="product-card-description">
-          <h3><%= booking.product.title.truncate(25) %></h3>
-          <p><%= booking.product.description.truncate(70) %></p>
-          <p id="dates">Dates: <%= booking.check_in %> until <%= booking.check_out %></p>
-          <h4><span class="product-card-price">€<%= booking.product.price %></span>/day</h4>
-        </div>
-      </div>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>

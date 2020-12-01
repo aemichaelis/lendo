@@ -11,6 +11,8 @@ Favourite.destroy_all
 
 Review.destroy_all
 
+Chatroom.destroy_all
+
 Booking.destroy_all
 
 Product.destroy_all
@@ -21,8 +23,17 @@ puts "creating products..."
 
 user = User.create(
   email: "paul@paul.com",
-  password: "testing",
+  username: "Paul",
+  password: "testing"
   )
+user.avatar.attach(
+  io: File.open(
+    Rails.root.join(
+      'app', 'assets', 'images', 'little_paul.jpeg'
+    )
+  ), filename: 'little_paul.jpeg',
+  content_type: 'image/png'
+)
 
 product = Product.new(
   title: "almost new iPhone 8",
@@ -283,12 +294,14 @@ puts "create bookings..."
 user_second = User.create(
   email: "alex@alex.com",
   password: "testing",
+  username: "Alex"
   )
 
 booking = Booking.new(
   check_in: "2020-11-24",
   check_out: "2020-11-26",
   confirmed: "pending",
+  status: 0,
   )
 booking.product = product_10
 booking.user = user_second
@@ -299,6 +312,7 @@ booking = Booking.new(
   check_in: "2020-12-02",
   check_out: "2021-12-09",
   confirmed: "pending",
+  status: 0,
   )
 booking.product = product_09
 booking.user = user_second

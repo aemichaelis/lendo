@@ -5,7 +5,7 @@
           <h1>Confirm and Pay your Order </h1>  <!-- boooking-header -->
           <div class="card-info">
             <div class="booking-title">
-              <h2> <%= @booking.product.title %> </h2>
+              <h2> <%= @product.title %> </h2>
             </div>
             <div class="booking-period">
               <h3><strong> Renting Period </strong></h3>
@@ -29,9 +29,8 @@
                 </div>
             </div>
             <div class="booking-message">
-              <h3><strong> Send Message to Owner </strong></h3>
-              <textarea name="career[message]" class="form-control" tabindex="4"
-              placeholder="Write a message..." required></textarea>
+              <h3><strong> Do you want to message the owner? </strong></h3>
+              <p>Once you have confirmed and payed the booking, you will be able to message the owner!</p>
             </div>
             <div class="booking-info">
               <h3><strong> Safety Notice </strong></h3>
@@ -43,20 +42,25 @@
               Lendo’s Distance Policy and other policies. I also agree to pay the total amount shown including service charges.
               The terms of payment between you and the other user.
               </p>
-              <%= link_to "Confirm and Pay", bookings_path, class: "primary-button-large" %>
+              <%= form_for [@product, @booking], url: save_booking_product_bookings_path(@product) do %>
+              <%= hidden_field_tag :check_in, value: @booking.check_in %>
+              <%= hidden_field_tag :check_out, value: @booking.check_out %>
+              <%= hidden_field_tag :product_id, value: @product.id %>
+              <%= submit_tag "Confirm and Pay", class: "primary-button-large" %>
+              <%end%>
             </div>
           </div>
         </div>
           <div class="col-4">
             <div class="container-booking-form">
               <div class="booking-info">
-                <h2 class="d-inline">€ <%= @booking.product.price %></h2><h3 class="d-inline"> per month</h3>
-                <h2 class="booking-title"><%= @booking.product.brand %> <%= @booking.product.model %></h2>
-                <p><%= @booking.product.description.truncate(35) %> </p>
-                <p><i class="far fa-check-circle"></i> <%= @booking.product.condition %></p>
-                <p><i class="fas fa-truck"></i> <%= @booking.product.delivery_method %></p>
+                <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per month</h3>
+                <h2 class="booking-title"><%= @product.brand %> <%= @product.model %></h2>
+                <p><%= @product.description.truncate(35) %> </p>
+                <p><i class="far fa-check-circle"></i> <%= @product.condition %></p>
+                <p><i class="fas fa-truck"></i> <%= @product.delivery_method %></p>
               </div>
-              <h3 class="spacing"><%= @booking.product.price %> € for 30 Days </h3>
+              <h3 class="spacing"><%= @product.price %> € for 30 Days </h3>
               <h3 class="bottom-line">incl. Service Fee (10%)</h3>
               <h2 class="spacing">Total amount: 19,80 €</h2>
             </div>
