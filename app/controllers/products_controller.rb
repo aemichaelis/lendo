@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
      @favourite = Favourite.new
   end
 
-
   def myproducts
     @products = policy_scope(Product.where(user: current_user))
     authorize @products
@@ -56,6 +55,21 @@ class ProductsController < ApplicationController
     authorize @product
     @product.update(product_params)
     redirect_to myproducts_path
+  end
+
+  def requests
+    @products = policy_scope(Product.where(user: current_user))
+    authorize @products.first
+    @requests = []
+    @products.each do |product|
+      @requests << policy_scope(Booking).where(product: product)
+      # product.bookings.eacyh do |booking|
+      #   @requests.push(booking)
+      # end
+    end
+    @requests = @requests.flatten
+    @request = Booking.where(confirmed: "pending")
+    @booked_requests = Booking.where(confirmed: "true")
   end
 
   def destroy

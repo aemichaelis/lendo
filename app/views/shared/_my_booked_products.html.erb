@@ -1,9 +1,9 @@
 <div>
-  <% if @request.empty? %>
+  <% if @booked_requests.empty? %>
     <p>You don't have any requests yet.</p>
   <% else %>
     <div class="row bookings-row">
-      <% @request.each do |request| %>
+      <% @booked_requests.each do |request| %>
         <div class="col-lg-3 col-sm-5">
           <div class="product-card-bookings bookings">
             <!-- Image -->
@@ -23,27 +23,18 @@
             </div>
             <div>
               <div>
-
                 <%= simple_form_for(request) do |f| %>
-                  <%= f.input :confirmed, as: :hidden, input_html:{value: "true"}%>
-                   <%= button_tag type: 'submit', class: "secondary-button lends-card-button-width" do %>
-                    <p>Accept</p>
+                  <%= f.input :confirmed, as: :hidden, input_html:{value: "returned"}%>
+                   <%= button_tag type: 'submit', class: "secondary-button booking-card-button-width" do %>
+                    <p>Mark as back</p>
                   <% end %>
                 <% end %>
-
-              </div>
-              <div>
-
-                <%= simple_form_for(request) do |f| %>
-                  <%= f.input :confirmed, as: :hidden, input_html:{value: "false"}%>
-                   <%= button_tag type: 'submit', class: "secondary-button-unactive lends-card-button-width" do %>
-                    <p>Decline</p>
-                  <% end %>
-                <% end %>
-
               </div>
 
-              <button class="other-button-unactive booking-card-button-width "> <%= link_to "View", product_path(request.product) %>
+              <button class="secondary-button-unactive booking-card-button-width"> <%= link_to "Send message", chatroom_path(request.chatroom) %>
+              </button>
+
+              <button class="booking-card-button-width other-button-unactive"> <%= link_to "View", product_path(request.product) %>
               </button>
 
             </div>
