@@ -13,7 +13,8 @@
             </div>
             <div class="booking-period">
               <h3><strong> Days </strong></h3>
-              <p><%= pluralize (@booking.check_out - @booking.check_in).to_i , 'day'%></p>
+              <% booking_days = (@booking.check_out - @booking.check_in + 1).to_i %>
+              <p><%= pluralize booking_days, 'day'%></p>
             </div>
             <div class="booking-payment">
               <h3><strong> Payment Method </strong></h3>
@@ -52,17 +53,21 @@
           </div>
         </div>
           <div class="col-4">
-            <div class="container-booking-form">
+            <div class="booking-form">
               <div class="booking-info">
-                <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per month</h3>
+                <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per week</h3>
                 <h2 class="booking-title"><%= @product.brand %> <%= @product.model %></h2>
                 <p><%= @product.description.truncate(35) %> </p>
                 <p><i class="far fa-check-circle"></i> <%= @product.condition %></p>
                 <p><i class="fas fa-truck"></i> <%= @product.delivery_method %></p>
               </div>
-              <h3 class="spacing"><%= @product.price %> € for 30 Days </h3>
-              <h3 class="bottom-line">incl. Service Fee (10%)</h3>
-              <h2 class="spacing">Total amount: 19,80 €</h2>
+              <% price_per_day = @product.price.to_f / 7 %>
+              <% price_per_booking = price_per_day * booking_days %>
+              <h3 class="spacing"><%= price_per_booking.round(2) %> € for <%= pluralize booking_days, 'day'%></h3>
+              <% service_fee = price_per_booking * 0.1 %>
+              <h3 class="bottom-line">+ <%= service_fee.round(2) %> € Service Fee (10%)</h3>
+              <% total_price = service_fee + price_per_booking %>
+              <h2 class="spacing" id="total-amount">Total amount: <%= total_price.round(2) %> €</h2>
             </div>
           </div>
       </div>

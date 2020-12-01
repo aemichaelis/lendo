@@ -10,4 +10,3 @@ class AvailabilityValidator < ActiveModel::EachValidator
     end
   end
 end
-
