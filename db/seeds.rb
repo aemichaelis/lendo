@@ -23,8 +23,8 @@ puts "creating products..."
 
 user = User.create(
   email: "paul@paul.com",
-  username: "Paul"
-  password: "testing",
+  username: "Paul",
+  password: "testing"
   )
 user.avatar.attach(
   io: File.open(
@@ -294,6 +294,7 @@ puts "create bookings..."
 user_second = User.create(
   email: "alex@alex.com",
   password: "testing",
+  username: "Alex"
   )
 
 booking = Booking.new(
