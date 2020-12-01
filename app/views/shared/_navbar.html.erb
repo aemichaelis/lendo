@@ -12,6 +12,7 @@
     <span class="fas fa-question-circle"></span>
   </button>
 
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
@@ -24,11 +25,12 @@
               <%= link_to "Notifications", "notifications", class: "dropdown-item" %>
               <%= link_to "Messages", messages_path, class: "dropdown-item" %>
               <%= link_to "Rent your products", "#", class: "dropdown-item" %>
+              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item"  %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
          <li>
-          <%= image_tag "avatar.png", class: "avatar" %>
+          <%= image_tag (current_user.avatar), class: "avatar" %>
         </li>
       <% else %>
         <li class="nav-item">

@@ -23,6 +23,7 @@ puts "creating products..."
 
 user = User.create(
   email: "paul@paul.com",
+  username: "Paul"
   password: "testing",
   )
 
