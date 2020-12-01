@@ -21,14 +21,19 @@
   select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
-    width: 237px;
-    height: 41px;
-    padding-left: 12px;
-
+    width: 100%;
+    height: 40px;
+    -moz-padding-start: calc(10px - 3px);
+    padding-left: 10px;
+    color: rgba(51, 51, 51, 0.54);
+    outline-style: none;
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(51, 51, 51, 0.54);
     border-radius: 6px;
+  }
+  option {
+    padding: 10px;
+    background-color: $background-green;
     color: $text-black;
   }
 }
