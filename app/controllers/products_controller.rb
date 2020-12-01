@@ -73,9 +73,11 @@ class ProductsController < ApplicationController
   def filter_products
     @products = @products.by_min_price(params[:price_min]) if params[:price_min].present?
     @products = @products.by_max_price(params[:price_max]) if params[:price_max].present?
-    @products = @products.by_delivery_method(params[:product][:delivery_method]) if params[:product].present?
-    @products = @products.by_condition(params[:product][:condition]) if params[:product].present?
-    @products = @products.by_brand(params[:product][:brand]) if params[:product].present?
+    if params[:product].present?
+      @products = @products.by_delivery_method(params[:product][:delivery_method]) if params[:product][:delivery_method].present?
+      @products = @products.by_condition(params[:product][:condition]) if params[:product][:condition].present?
+      @products = @products.by_brand(params[:product][:brand]) if params[:product][:brand].present?
+    end
     @products
   end
 
