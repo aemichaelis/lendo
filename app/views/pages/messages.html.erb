@@ -5,6 +5,7 @@
         <%= link_to chatroom_path(chatroom), class: "chat-index" do %>
           <div class="chatlink">
             <div class="chat-partner-info">
+              <%= image_tag (current_user.avatar), class: "avatar" %>
               <%= chatroom.booking.user.email %> <br>
               <%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %>
             </div>
