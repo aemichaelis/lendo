@@ -1,7 +1,7 @@
 <div class="con-small">
   <h1>My Notifications</h1>
 
-  <% @notifications.each do |notification| %>
+  <% @notifications.order("created_at DESC").each do |notification| %>
     <div class="container-item">
       <% if notification.action == "messaged" %>
         <!-- Card for message notifications -->
@@ -27,7 +27,7 @@
           </div>
       <% elsif notification.action == "changed status" %>
       <!-- Card for booking status changes -->
-        <%= link_to chatroom_path(notification.notifiable), class: "chat-index" do %>
+        <%= link_to bookings_path, class: "chat-index" do %>
           <div class="notification">
             <div class="notification-actor-info">
               <div class="notification-image">
@@ -50,7 +50,4 @@
       <% end %>
     </div>
   <% end %>
-
-
-
 </div>
