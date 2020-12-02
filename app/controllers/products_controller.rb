@@ -2,6 +2,13 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def show
     @product = Product.find(params[:id])
+
+      @marker = {
+          lat: @product.latitude,
+          lng: @product.longitude,
+          image_url: helpers.asset_url('location_pick_blue_03.png')
+        }
+
     @booking = Booking.new
     authorize @product
     @favourite = Favourite.new
@@ -30,7 +37,7 @@ class ProductsController < ApplicationController
     @products = filter_products
     @favourite = Favourite.new
   end
-  
+
   def myproducts
     @products = policy_scope(Product.where(user: current_user))
     authorize @products
