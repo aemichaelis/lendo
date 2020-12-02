@@ -79,13 +79,15 @@
                 <p><%= @product.address %></p>
               </div>
               <div class="col-3">
-                <a href="https://www.google.com/maps/place/Berlin/" target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+                <a href='https://www.google.com/maps/place/berlin/' target="_blank"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
               </div>
             </div>
-            <div id="map"
-                  class="image-medium"
+            <div class="image-medium">
+              <div id="map"
+                  class="image-medium-map"
                   data-marker="<%= @marker.to_json %>"
                   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
             </div>
             <div class="reviews-container content-info">
             <h2 class="card-subheader"><i class="fas fa-star"> </i> Reviews (<%= @product.reviews.count %>) </h2>

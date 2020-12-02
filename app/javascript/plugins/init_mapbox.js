@@ -5,19 +5,23 @@ const initMapbox = () => {
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const marker = JSON.parse(mapElement.dataset.marker);
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/luhuzie/cki7ikx3b3z0t1ao8cjd46jmg',
+      center: [marker.lng, marker.lat],
+      zoom: 12
     });
-    const marker = JSON.parse(mapElement.dataset.marker);
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
-    const fitMapToMarkers = (map, marker) => {
-    const bounds = new mapboxgl.LngLatBounds();
-    bounds.extend([ marker.lng, marker.lat ]);
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-    }
+
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '25px';
+    element.style.height = '25px';
+    new mapboxgl.Marker(element)
+    .setLngLat([marker.lng, marker.lat])
+    .addTo(map);
   };
 }
 

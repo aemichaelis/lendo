@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
 
       @marker = {
           lat: @product.latitude,
-          lng: @product.longitude
+          lng: @product.longitude,
+          image_url: helpers.asset_url('location_pick_blue_03.png')
         }
 
     @booking = Booking.new
