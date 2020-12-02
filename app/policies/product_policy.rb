@@ -13,6 +13,14 @@ class ProductPolicy < ApplicationPolicy
     true
   end
 
+  def requests?
+    true
+  end
+
+  def booked?
+    true
+  end
+
   def update?
     record.user == user
   end
