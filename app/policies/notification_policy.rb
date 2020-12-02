@@ -4,4 +4,8 @@ class NotificationPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def update?
+    record.recipient == user
+  end
 end

@@ -52,6 +52,7 @@ class BookingsController < ApplicationController
     redirect_to requests_path
     flash[:notice] = "Booking request was successful!"
     authorize @booking
+    Notification.create(recipient: @booking.user, actor: @booking.product.user, action: "changed status", notifiable: @booking)
   end
 
   def destroy

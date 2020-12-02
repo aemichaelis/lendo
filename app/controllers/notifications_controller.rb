@@ -5,9 +5,10 @@ class NotificationsController < ApplicationController
     @notifications = policy_scope(Notification.where(recipient: current_user).unread)
   end
 
-  def mark_as_read
-    @notifications = policy_scope(Notification.where(recipient: current_user).unread)
-    @notifications.update_all(read_at: Time.zone.now)
-    render json: { success: true }
+  def update
+    @notification = Notification.find(params[:id])
+    authorize @notification
+    @notification.update(read_at: Time.zone.now)
+    redirect_to notifications_path
   end
 end
