@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   get '/myproducts', to: 'products#myproducts', as: :myproducts
   put '/myproducts', to: 'products#myproducts', as: :myproduct
   get '/booking/confirm', to: 'bookings#confirm', as: :confirm
