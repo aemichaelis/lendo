@@ -30,6 +30,7 @@
     color: #730E15;
     line-height: 1.5em;
     color: #333333;
+    margin-bottom: 8px;
   }
 
   .rails-default-error-page p {
@@ -38,11 +39,12 @@
     color: #730E15;
     line-height: 1.5em;
     color: #333333;
+    margin-bottom: 24px;
   }
 
   .primary-button {
   color: white;
-  background-color: $primary-color;
+  background-color: #0C2BFA;
   align-items: center;
   padding: 8px 16px;
   box-sizing: border-box;
@@ -52,23 +54,15 @@
   height: 35px;
   font-weight: 600;
   text-decoration: none;
-  border-color: $primary-color;
+  border-color: #0C2BFA;
   border-style: none;
+  }
 
-  &:hover {
-    background-color: $primary-color;
+  .primary-button:hover {
+    background-color: #0C2BFA;
     opacity: 0.54;
     color: white;
     text-decoration: none;
-  }
-}
-
-  a {
-    color: #333333;
-  }
-
-  a:hover {
-    color: #333333;
   }
 
   </style>
@@ -81,9 +75,9 @@
       <h1>Oops, that shouldn't happen...</h1>
     </div>
     <p>We're sorry, but something didn't go quite right. <br>
-    <form method="get" action="/">
-        <button class="primary-button" type="submit">Bring me Home</button>
-    </form>
+      <form action="/">
+          <input class="primary-button" type="submit" value="Bring me Home" />
+      </form>
   </div>
 </body>
 </html>
