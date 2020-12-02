@@ -9,23 +9,20 @@
 
 .searchform {
   overflow: hidden;
-  width: 255px;
+  width: 267px;
   height: 41px;
 }
 
-input:focus {
-  outline-style: none;
+#query input:focus {
+  outline: none !important;
   border: 1px solid $primary-color;
   color: $text-black;
   box-shadow: 0px 0px 0px 4px rgba(95, 108, 255, 0.24)
 }
 
 .searchform:hover {
-  padding-top: 107px;
   width: 100%;
-  height: 148px;
-  margin-bottom: 16px;
-  transition: height 0.5s;
+  transition: width 0.8s;
 
     #address-input {
     display: inline;
