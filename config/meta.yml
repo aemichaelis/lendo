@@ -1,0 +1,5 @@
+meta_product_name: "Lendo"
+meta_title: "Lendo - Make it lend"
+meta_description: "Lendo is a community marketspace for renting your used tech-products."
+meta_image: "og_image.jpg" # should exist in `app/assets/images/`
+  # required for Twitter Cards
