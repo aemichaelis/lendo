@@ -12,12 +12,14 @@
       </li>
 
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="upcoming-tab" data-toggle="tab" href="#upcoming_bookings" role="tab" aria-controls="upcoming" aria-selected="false"><h2> Upcoming (<%= @bookings.upcoming.count %>)</h2>
+        <a class="nav-link" id="upcoming-tab" data-toggle="tab" href="#upcoming_bookings" role="tab" aria-controls="upcoming" aria-selected="false">
+        <h2> Upcoming (<%= @bookings.upcoming.count %>)</h2>
         </a>
       </li>
 
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous_bookings" role="tab" aria-controls="previous" aria-selected="false"><h2> Previous (<%= @bookings.previous.count %>)</h2>
+        <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous_bookings" role="tab" aria-controls="previous" aria-selected="false">
+        <h2> Previous (<%= @bookings.previous.count %>)</h2>
         </a>
       </li>
 

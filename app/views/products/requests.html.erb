@@ -1,0 +1,33 @@
+<div class="con-large">
+  <div>
+    <h1>Lends</h1>
+  </div>
+  <div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="requests-tab" data-toggle="tab" href="#requests" role="tab" aria-controls="requests" aria-selected="true">
+        <h2> Requests (<%= @request.count %>)</h2>
+        </a>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="booked-tab" data-toggle="tab" href="#booked_products" role="tab" aria-controls="booked" aria-selected="false"><h2> Booked (<%= @booked_requests.count %>)</h2>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+      <%= render 'shared/my_requests' %>
+    </div>
+
+    <div class="tab-pane fade" id="booked_products" role="tabpanel" aria-labelledby="booked_products-tab">
+      <%= render 'shared/my_booked_products' %>
+    </div>
+
+  </div>
+</div>
+
