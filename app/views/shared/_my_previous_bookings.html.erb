@@ -1,10 +1,10 @@
 <div>
-  <% if @bookings.previous.empty? %>
+  <% if @previous_bookings.empty? %>
     <p>You don't have any bookings yet.</p>
     <%= link_to "Browse Products", products_path, class: 'primary-button'  %>
   <% else %>
     <div class="row bookings-row">
-      <% @bookings.previous.each do |booking| %>
+      <% @previous_bookings.each do |booking| %>
         <div class="col-lg-3 col-sm-5">
           <div class="product-card-bookings bookings">
             <!-- Image -->
@@ -19,7 +19,7 @@
               <p>
                 <%= booking.product.description.truncate(70) %>
               </p>
-              <h2 id="dates"><%= booking.check_in %> – <%= booking.check_out %>
+              <h2 id="dates"><%= booking.check_in.strftime("%d.%m.%Y") %> – <%= booking.check_out.strftime("%d.%m.%Y") %>
               </h2>
             </div>
             <div>
@@ -36,3 +36,4 @@
     </div>
   <% end %>
 </div>
+

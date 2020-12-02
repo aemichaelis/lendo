@@ -46,7 +46,7 @@ product = Product.new(
   can stay connected via 4G and Wi-Fi.",
   address: "Pestalozzistraße 25, 10627 Berlin",
   category: "Phones & Mobile Tech",
-  price: "20",
+  price: "7",
   accessories: "comes with charger (USB) and screen protection",
   condition: "Like New",
   model: "iPhone 8",
@@ -55,7 +55,7 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1560084157-d6ba2c88ad82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3034&q=80')
+file = URI.open('https://images.unsplash.com/photo-1486941976652-a3b72da83237?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
 product.photos.attach(io: file, filename: "product_01.png", content_type: 'image/png')
 
 product.save!
@@ -73,7 +73,7 @@ product = Product.new(
   postage will be super fast 1st class signed for.",
   address: "Rudi-Dutschke-Straße 26, 10969 Berlin",
   category: "Phones & Mobile Tech",
-  price: "45",
+  price: "10",
   accessories: "USB-charger, screen protection, heavy-duty case",
   condition: "Like New",
   model: "iPhone 11 Pro",
@@ -82,8 +82,10 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1596558450268-9c27524ba856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1825&q=80')
-product.photos.attach(io: file, filename: "product_02.png", content_type: 'image/png')
+file_1 = URI.open('https://images.unsplash.com/photo-1592286927505-1def25115558?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1574831986634-daead86723b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2382&q=80')
+product.photos.attach(io: file_1, filename: "product_02_1.png", content_type: 'image/png')
+product.photos.attach(io: file_2, filename: "product_02_2.png", content_type: 'image/png')
 
 product.save!
 
@@ -100,7 +102,7 @@ product = Product.new(
   resolution from both photos and videos.",
   address: "Friedrich-Olbricht-Damm 40, 13627 Berlin",
   category: "Cameras",
-  price: "25",
+  price: "11",
   accessories: "SD 64GB, 18-25mm VR Zoom Lens Kit, two Nikon EN-EL14a Batteries with charger",
   condition: "Minor Cosmetic Faults",
   model: "D3400 DSLR Camera",
@@ -132,7 +134,7 @@ product = Product.new(
   Collection from Norwich city centre is also possible.",
   address: "Tauentzienstraße 24, 10789 Berlin",
   category: "Computers",
-  price: "30",
+  price: "21",
   accessories: "16 GB RAM, 1 TB SSD Capacity, protective shell and charger included",
   condition: "Like New",
   model: "MacBook Pro 2019",
@@ -157,7 +159,7 @@ product = Product.new(
   Apple Pencil.",
   address: "Eisenbahnstraße 42, 10997 Berlin",
   category: "Phones & Mobile Tech",
-  price: "45",
+  price: "19",
   accessories: "128 GB Capacity, Apple Pencil and charger included",
   condition: "Normal Wear",
   model: "iPad Pro 2019",
@@ -166,7 +168,7 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1569697150535-94fb89f890be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
+file = URI.open('https://images.unsplash.com/photo-1542751110-97427bbecf20?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1876&q=80')
 product.photos.attach(io: file, filename: "product_05.png", content_type: 'image/png')
 
 product.save!
@@ -182,7 +184,7 @@ product = Product.new(
   Share button.",
   address: "Spandauer Damm 10, 14059 Berlin",
   category: "Gaming",
-  price: "7",
+  price: "3",
   accessories: "Gamepad only (Playstation/chargers not included)",
   condition: "Normal Wear",
   model: "DualShock 4",
@@ -205,7 +207,7 @@ product = Product.new(
   and cable, just let me know which you prefer when buying. Will throw in clear silicon case too.",
   address: "Albrechtstraße 96, 12167 Berlin",
   category: "Phones & Mobile Tech",
-  price: "47",
+  price: "16",
   accessories: "AirPods, charger and protective Case included",
   condition: "Normal Wear",
   model: "iPhone 11 Pro",
@@ -226,7 +228,7 @@ product = Product.new(
   Dispatched with Royal Mail 1st Class or Collection from DA9",
   address: "Ahornstraße 16A, 12163 Berlin",
   category: "Phones & Mobile Tech",
-  price: "27",
+  price: "8",
   accessories: "charger and Screenprotection included",
   condition: "Like New",
   model: "Google pixel 4a",
@@ -252,7 +254,7 @@ product_09 = Product.new(
   Please email to ask any questions about this item, or analog photography in general.",
   address: "Invalidenstraße 43, 10115 Berlin",
   category: "Cameras",
-  price: "18",
+  price: "6",
   accessories: "35mm lens, batteries, Nikon strap, Manual Book",
   condition: "Minor Cosmetic Faults",
   model: "F1",
@@ -275,7 +277,7 @@ product_10 = Product.new(
   Any Questions, just shoot me a message. The items will be rented in the condition as shown in pictures, safely packed.",
   address: "Crellestraße 26, 10827 Berlin",
   category: "Cameras",
-  price: "24",
+  price: "13",
   accessories: "28-105 mm lens, two rechargeable batteries with charger, Camera strap",
   condition: "Normal Wear",
   model: "EOS 6D",
@@ -298,37 +300,41 @@ user_second = User.create(
   )
 
 booking = Booking.new(
-  check_in: Date.today,
-  check_out: Date.today + 7,
+
+  check_in: "2020-12-06",
+  check_out: "2020-12-10",
   confirmed: "pending",
   status: 0,
   )
 booking.product = product_10
 booking.user = user_second
+
+booking.save!
+
 chatroom1 = Chatroom.create(name: booking.product.title)
 chatroom1.booking = booking
 chatroom1.p1_id = booking.user.id
 chatroom1.p2_id = booking.product.user.id
 chatroom1.save
 
-
-booking.save!
-
 booking = Booking.new(
-  check_in: Date.today,
-  check_out: Date.today + 7,
+
+  check_in: "2020-12-13",
+  check_out: "2020-12-20",
   confirmed: "pending",
   status: 0,
   )
 booking.product = product_09
 booking.user = user_second
+
+booking.save!
+
 chatroom2 = Chatroom.create(name: booking.product.title)
 chatroom2.booking = booking
 chatroom2.p1_id = booking.user.id
 chatroom2.p2_id = booking.product.user.id
 chatroom2.save
 
-booking.save!
 
 puts "finished"
 

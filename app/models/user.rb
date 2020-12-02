@@ -31,4 +31,8 @@ class User < ApplicationRecord
   has_many :author_chatrooms, foreign_key: :p1_id, class_name: 'Chatroom', dependent: :destroy
   has_many :receiver_chatrooms, foreign_key: :p2_id, class_name: 'Chatroom', dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
+
+
+  has_many :orders
+
 end

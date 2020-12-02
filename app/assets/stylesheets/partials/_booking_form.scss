@@ -12,10 +12,18 @@
     border-radius: 6px;
   }
 
+  input {
+    margin-bottom: 16px;
+  }
+
   input.form-control.string.optional {
     background-color: $background-pink;
     border: 1px solid black;
     opacity: 0.8;
+  }
+
+  .flatpickr-wrapper {
+    width: 100%;
   }
 
   input:focus, textarea:focus {
@@ -31,6 +39,7 @@
   .small_text {
     font-size: 14px !important;
     padding-top:8px;
+    margin-bottom: 6px !important;
   }
 
   .bottom-line {

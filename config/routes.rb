@@ -34,5 +34,8 @@ Rails.application.routes.draw do
   # post '/bookings/save_booking', to: 'bookings#save_booking', as: :save_booking
   get '/messages', to: 'pages#messages', as: :messages
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # for payments
+
 end
 

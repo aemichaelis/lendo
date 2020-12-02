@@ -1,6 +1,7 @@
 <div class="container booking-form">
   <div class="booking-info">
-    <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per week</h3>
+    <h2 class="d-inline"><%= humanized_money_with_symbol(@product.price) %></h2><h3 class="d-inline"> per week</h3>
+    <p class="small_text">(We will be adding a Service Fee of 10%)</p>
     <h2 class="booking-title"><%= @product.brand %> <%= @product.model %></h2>
     <p><%= @product.description.truncate(35) %> </p>
     <p><i class="far fa-check-circle"></i> <%= @product.condition %></p>
@@ -16,7 +17,4 @@
   <div class="text-center">
     <p class="small_text">You don't have to pay anything yet.</p>
   </div>
-  <h3 class="spacing"><%= @product.price %> € per week </h3>
-  <h3 class="bottom-line">incl. Service Fee (10%)</h3>
-  <h2 class="spacing">Total amount: 25,80 €</h2>
 </div>

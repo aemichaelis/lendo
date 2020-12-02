@@ -22,7 +22,7 @@
             </div>
             <div class="chat-product-info">
               <h3><%= chatroom.booking.product.title.truncate(55) %></h3>
-              <p> Booking dates: <%= chatroom.booking.check_in %> to <%= chatroom.booking.check_out %></p>
+              <p> Booking dates: <%= chatroom.booking.check_in.strftime("%d.%m.%Y") %> – <%= chatroom.booking.check_out.strftime("%d.%m.%Y") %></p>
               <p>Last message:</p>
               <% if chatroom.messages.empty? %>
                 <p>No messages to display</p>

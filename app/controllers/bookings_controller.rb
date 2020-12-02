@@ -2,6 +2,8 @@ class BookingsController < ApplicationController
   def index
     # @bookings = current_user.bookings
     @bookings = policy_scope(current_user.bookings)
+    @upcoming_bookings = @bookings.where("check_in >= ?", Date.today)
+    @previous_bookings = @bookings.where("check_out <= ?", Date.today)
   end
 
   def new
@@ -19,7 +21,7 @@ class BookingsController < ApplicationController
     if params[:commit] == "Reserve"
       if params[:booking][:check_in].blank? || params[:booking][:check_out].blank?
         redirect_to product_path(@product)
-        flash[:notice] = "Please enter a valid date"
+        flash[:notice] = "Oops! Please enter a valid date"
       else
         redirect_to confirm_path(product_id: params[:product_id], booking: booking_params)
       end
@@ -39,7 +41,7 @@ class BookingsController < ApplicationController
       @chatroom.p2_id = @booking.product.user.id
       @chatroom.save
       redirect_to bookings_path
-      flash[:notice] = "Booking request was successful!"
+      flash[:notice] = "Your booking request was successful!"
     else
       render :new
     end
@@ -50,7 +52,7 @@ class BookingsController < ApplicationController
     @booking.update(confirmed: params.dig("booking", "confirmed"))
     @booking.save
     redirect_to requests_path
-    flash[:notice] = "Booking request was successful!"
+    flash[:notice] = "Your booking request was successful!"
     authorize @booking
     Notification.create(recipient: @booking.user, actor: @booking.product.user, action: "changed status", notifiable: @booking)
   end
