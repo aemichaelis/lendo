@@ -1,6 +1,6 @@
 <div class="container booking-form">
   <div class="booking-info">
-    <h2 class="d-inline">€ <%= @product.price %></h2><h3 class="d-inline"> per week</h3>
+    <h2 class="d-inline"><%= humanized_money_with_symbol(@product.price) %></h2><h3 class="d-inline"> per week</h3>
     <p class="small_text">(We will be adding a Service Fee of 10%)</p>
     <h2 class="booking-title"><%= @product.brand %> <%= @product.model %></h2>
     <p><%= @product.description.truncate(35) %> </p>
