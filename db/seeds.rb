@@ -301,7 +301,7 @@ user_second = User.create(
 
 booking = Booking.new(
   check_in: Date.today,
-  check_out: Date.today + 7,
+  check_out: Date.today + 10,
   confirmed: "pending",
   status: 0,
   )
@@ -318,7 +318,7 @@ booking.save!
 
 booking = Booking.new(
   check_in: Date.today,
-  check_out: Date.today + 7,
+  check_out: Date.today + 20,
   confirmed: "pending",
   status: 0,
   )
