@@ -10,6 +10,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'mapbox-gl/dist/mapbox-gl';
 
 // Your CSS partials
 @import "components/index";
@@ -25,6 +26,7 @@
 @import "partials/message";
 @import "pages/chatroom";
 @import "partials/message";
+@import "components/notification";
 
 // JS
 @import "flatpickr/dist/flatpickr";

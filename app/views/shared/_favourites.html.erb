@@ -1,12 +1,12 @@
-<div>
+
   <% if @favourites.empty? %>
     <p>You don't have any favourites to display</p>
     <%= link_to "Browse Products", products_path, class: 'primary-button'  %>
   <% else %>
-    <div class="row favourites-row">
+    <div class="row">
       <% @favourites.each do |favourite| %>
         <%= link_to product_path(favourite.product, class: "card-link") do %>
-          <div class="col-lg-3 col-sm-5">
+          <div class="col-lg-3 col-sm-6">
             <div class="product-card favourite">
               <!-- Image -->
               <div class="image image-small">
@@ -27,4 +27,4 @@
       <% end %>
     </div>
   <% end %>
-</div>
+

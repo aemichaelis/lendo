@@ -1,0 +1,66 @@
+.notification {
+  width: 80%;
+  min-height: 80px;
+  height: auto;
+  border: 1px solid #010101;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 0px;
+  margin-left: 111px;
+  margin-bottom: 24px;
+  color: #010101;
+  z-index: -1;
+}
+
+.notifications-container {
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.notification-actor-info {
+  display: flex;
+  margin-right: 20px;
+}
+
+.notification-message {
+  flex-grow: 1;
+}
+
+.notification-image {
+  margin: 10px 20px 0px 10px;
+  img {
+    border: 1px solid #010101;
+    border-radius: 50%;
+  }
+}
+
+.date {
+  line-height: 10px;
+  margin: 15px 0px 15px 20px;
+  p {
+    margin: 0px;
+    color: #010101;
+  }
+}
+
+.notification-content {
+  line-height: 10px;
+  margin: 10px 10px 0px 0px;
+  text-align: center;
+  p {
+    margin: 0px;
+  }
+}
+
+.secondary-button-unactive-mark-read {
+  z-index: 100;
+}
+
+.mark-as-read {
+  background-color: $background-yellow;
+  border: none !important;
+  font-size: 30px;
+  z-index: 1;
+}
+
