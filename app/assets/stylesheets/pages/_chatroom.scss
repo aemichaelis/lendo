@@ -5,7 +5,14 @@
   min-height: 500px;
   height: auto;
   justify-content: center;
-  padding-top: 48px;
+}
+
+.messages-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-bottom: 10px;
 }
 
 .chatlink {
@@ -24,13 +31,20 @@
   h3 {
     font-size: 24px;
   }
-  .chat-partner-info & .chat-product-info{
-    position: absolute;
-    top: 50%
-  }
   a:hover {
     text-decoration: none;
   }
+}
+
+.chat-partner-info {
+  margin-top: 16px;
+  img {
+    margin-left: 28px;
+  }
+}
+
+.chat-product-info {
+  margin-top: 16px;
 }
 
 .chat-index:hover {

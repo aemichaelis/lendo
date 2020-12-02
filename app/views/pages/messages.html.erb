@@ -5,14 +5,30 @@
         <%= link_to chatroom_path(chatroom), class: "chat-index" do %>
           <div class="chatlink">
             <div class="chat-partner-info">
-              <%= chatroom.booking.user.email %> <br>
+              <% if current_user.id == chatroom.p1_id %>
+                <%= image_tag (User.find(chatroom.p2_id).avatar), size: "100x100", class: "messages-avatar" %>
+              <% else %>
+                <%= image_tag (User.find(chatroom.p1_id).avatar), size: "100x100", class: "messages-avatar" %>
+              <% end %>
+              <br>
+              Your chat with: <strong>
+                <% if current_user.id == chatroom.p1_id %>
+                  <%= User.find(chatroom.p2_id).username %>
+                <% else %>
+                  <%= User.find(chatroom.p1_id).username %>
+                <% end %>
+              </strong>   <br>
               <%= chatroom.created_at.strftime("%a %b %e at %l:%M%p") %>
             </div>
             <div class="chat-product-info">
-              <h3><%= chatroom.booking.product.title.truncate(25) %></h3>
+              <h3><%= chatroom.booking.product.title.truncate(55) %></h3>
               <p> Booking dates: <%= chatroom.booking.check_in %> to <%= chatroom.booking.check_out %></p>
               <p>Last message:</p>
-              <p>"<%= chatroom.messages.last.content %>"</p>
+              <% if chatroom.messages.empty? %>
+                <p>No messages to display</p>
+              <% else %>
+                <%= chatroom.messages.last.content.truncate(40) %>
+              <% end %>
             </div>
             <div class="image image-small chat-product-pic">
               <%= cl_image_tag chatroom.booking.product.photos[0].key, height: 180, width: 255, crop: :fill %>

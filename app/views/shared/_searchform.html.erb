@@ -1,10 +1,14 @@
-<div style="display: inline">
+<div style="display: inline" class="searchform">
   <%= form_tag products_path, method: :get do %>
-  <div style="display: inline">
+  <div style="display: inline" id="keyword-input">
     <%= text_field_tag :query, params[:query], placeholder: "Search for Apple?", class: "input-search" %>
     <i class="fas fa-search search-icon"></i>
   </div>
-    <%= submit_tag "Search",  type: "hidden" %>
+  <div style="display: inline" id="address-input">
+    <%= text_field_tag :address, params[:address], placeholder: "12167", class: "input-search" %>
+    <i class="fas fa-map-marker-alt search-icon"></i>
+  </div style="display: inline">
+    <%= submit_tag "Search", class: "primary-button-large", id: "submit-search"%>
     <% end %>
 </div>
 

@@ -21,8 +21,19 @@
 @import "components/banner";
 @import "partials/inputs";
 @import "components/sidebar";
+@import "components/searchform";
 @import "partials/message";
 @import "pages/chatroom";
+@import "partials/message";
 
 // JS
 @import "flatpickr/dist/flatpickr";
+
+.main-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex-grow: 1;
+  }
+}

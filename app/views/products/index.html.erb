@@ -1,16 +1,14 @@
 <body id="index-page">
-  <div class="con-large">
-    <div class="container pt-4">
-      <h1 class="text-center prompt mt-3">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
-    </div>
-  </div>
   <div class="container-content">
     <div class="sidebar">
       <div class="sidebar-menu">
-        <%= image_tag("menu-fake.png") %>
+        <%= render 'shared/sidebar' %>
       </div>
     </div>
     <div class="product-card-container">
+      <div class="container pt-4">
+        <h1 class="search-count prompt mt-3">We found <%= pluralize @products.count, "Product" %> based on your search:</h1>
+      </div>
       <div class="row product-card-row">
         <% @products.each do |product| %>
           <div class="col-lg-4 col-sm-6">
@@ -43,7 +41,7 @@
                 <div class="product-card-description">
                   <h3><%= product.title.truncate(25) %></h3>
                   <p> <%= product.description.truncate(70) %> </p>
-                  <h4><span class="product-card-price">€ <%= product.price %></span> per Month</h4>
+                  <h4><span class="product-card-price">€ <%= product.price %></span> per week</h4>
                 </div>
               <% end %>
             </div>
