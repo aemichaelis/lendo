@@ -45,6 +45,22 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(confirmed: params.dig("booking", "confirmed"))
+    @booking.save
+    redirect_to requests_path
+    flash[:notice] = "Booking request was successful!"
+    authorize @booking
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
   def confirm
     @product = Product.find(params[:product_id])
     @booking = Booking.new(booking_params)

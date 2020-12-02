@@ -26,22 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      sql_query = " \
-        products.title @@ :query \
-        OR products.description @@ :query \
-        OR products.category @@ :query \
-        OR products.brand @@ :query \
-        OR products.model @@ :query "
-      @products = policy_scope(Product.where(sql_query, query: "%#{params[:query]}%"))
-    else
-      @products = policy_scope(Product.order("created_at DESC").all)
-    end
-     # @products = policy_scope(Product)
-     @favourite = Favourite.new
+    @products = find_products
+    @products = filter_products
+    @favourite = Favourite.new
   end
-
-
+  
   def myproducts
     @products = policy_scope(Product.where(user: current_user))
     authorize @products
@@ -58,6 +47,21 @@ class ProductsController < ApplicationController
     redirect_to myproducts_path
   end
 
+  def requests
+    @products = policy_scope(Product.where(user: current_user))
+    authorize @products.first
+    @requests = []
+    @products.each do |product|
+      @requests << policy_scope(Booking).where(product: product)
+      # product.bookings.eacyh do |booking|
+      #   @requests.push(booking)
+      # end
+    end
+    @requests = @requests.flatten
+    @request = Booking.where(confirmed: "pending")
+    @booked_requests = Booking.where(confirmed: "true")
+  end
+
   def destroy
     @product = Product.find(params[:id])
     authorize @product
@@ -66,6 +70,31 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def find_products
+    sql_query = " \
+        products.title @@ :query \
+        OR products.description @@ :query \
+        OR products.category @@ :query \
+        OR products.brand @@ :query \
+        OR products.model @@ :query "
+    @products = policy_scope(Product.order("created_at DESC").all)
+    @products = policy_scope(@products.where(sql_query, query: "%#{params[:query]}%")) if params[:query].present?
+    @products = policy_scope(@products.where('products.address ILIKE ?', "%#{params[:address]}%")) if params[:address].present?
+    @products
+  end
+
+  def filter_products
+    @products = @products.by_min_price(params[:price_min]) if params[:price_min].present?
+    @products = @products.by_max_price(params[:price_max]) if params[:price_max].present?
+    if params[:product].present?
+      @products = @products.by_delivery_method(params[:product][:delivery_method]) if params[:product][:delivery_method].present?
+      @products = @products.by_condition(params[:product][:condition]) if params[:product][:condition].present?
+      @products = @products.by_brand(params[:product][:brand]) if params[:product][:brand].present?
+      @products = @products.by_category(params[:product][:category]) if params[:product][:category].present?
+    end
+    @products
+  end
 
   def product_params
     params.require(:product).permit(:title, :description, :address, :category, :price, :accessories, :condition, :brand, :model, :delivery_method, :photos)

@@ -298,24 +298,35 @@ user_second = User.create(
   )
 
 booking = Booking.new(
-  check_in: "2020-11-24",
-  check_out: "2020-11-26",
+  check_in: Date.today,
+  check_out: Date.today + 7,
   confirmed: "pending",
   status: 0,
   )
 booking.product = product_10
 booking.user = user_second
+chatroom1 = Chatroom.create(name: booking.product.title)
+chatroom1.booking = booking
+chatroom1.p1_id = booking.user.id
+chatroom1.p2_id = booking.product.user.id
+chatroom1.save
+
 
 booking.save!
 
 booking = Booking.new(
-  check_in: "2020-12-02",
-  check_out: "2021-12-09",
+  check_in: Date.today,
+  check_out: Date.today + 7,
   confirmed: "pending",
   status: 0,
   )
 booking.product = product_09
 booking.user = user_second
+chatroom2 = Chatroom.create(name: booking.product.title)
+chatroom2.booking = booking
+chatroom2.p1_id = booking.user.id
+chatroom2.p2_id = booking.product.user.id
+chatroom2.save
 
 booking.save!
 
