@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   after_action :add_default_avatar, on: [:create, :update]
   include Pundit
 
+  #meta-tags
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
