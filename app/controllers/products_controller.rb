@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     @products = filter_products
     @favourite = Favourite.new
   end
-  
+
   def myproducts
     @products = policy_scope(Product.where(user: current_user))
     authorize @products
@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     authorize @product
     @product.destroy
-    redirect_to myproducts_path
+    redirect_to requests_path
   end
 
   private

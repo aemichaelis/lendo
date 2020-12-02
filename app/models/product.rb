@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   categories = ['Computers', 'Phones & Mobile Tech', 'Cameras', 'Gaming', 'Music', 'Home', 'Drones', 'Other']
   condition = ['Like New', 'Normal Wear', 'Minor Cosmetic Faults', 'Minor Functional Faults']
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, :dependent => :destroy
 
   def unavailable_dates
     bookings.pluck(:check_in, :check_out).map do |range|
