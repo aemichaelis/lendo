@@ -34,7 +34,7 @@
                 <%= image_tag (notification.actor.avatar), size: "60x60" %>
               </div>
               <div class="date">
-                <p class="notification-message"> <%= notification.actor.username %> changed the status of your booking for: <br> "<%= Chatroom.find(notification.notifiable_id).name %>"" </p>
+                <p class="notification-message"> <%= notification.actor.username %> changed the status of your booking for: <br> "<%= Booking.find(notification.notifiable_id).product.title %>"" </p>
               </div>
             </div>
         <% end %>
@@ -56,7 +56,7 @@
                 <%= image_tag (notification.actor.avatar), size: "60x60" %>
               </div>
               <div class="date">
-                <p class="notification-message"> <%= notification.actor.username %> requested your product: <br> "<%= Chatroom.find(notification.notifiable_id).name %>"" </p>
+                <p class="notification-message"> <%= notification.actor.username %> requested your product: <br> "<%= Booking.find(notification.notifiable_id).product.title %>"" </p>
               </div>
             </div>
         <% end %>
