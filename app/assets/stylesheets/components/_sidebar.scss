@@ -1,13 +1,20 @@
 .sidebar-menu {
   padding-left: 80px;
   padding-top: 100px;
+  margin-right: 60px;
+  width: 318px;
+  height: 100%;
 }
 
 .form-sticky {
   display: block;
   position: relative;
-  position: sticky;
   top: 100px;
+}
+
+.sticky {
+  position: sticky;
+  top: 18px;
 }
 
 .price input {
