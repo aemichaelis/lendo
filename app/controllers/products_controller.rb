@@ -55,18 +55,31 @@ class ProductsController < ApplicationController
   end
 
   def requests
-    @products = policy_scope(Product.where(user: current_user))
-    authorize @products.first
+    # My Products
+    @products = Product.where(user: current_user)
+    authorize @products
+    # @products = policy_scope(Product.where(user: current_user))
+    # authorize @products unless current_user.products.empty?
+    # @requests = []
+    # @products.each do |product|
+    #   @requests << policy_scope(Booking.where(product: product))
+    # end
+    # @requests = @requests.flatten
+
+    # My pending requests
     @requests = []
-    @products.each do |product|
-      @requests << policy_scope(Booking).where(product: product)
-      # product.bookings.eacyh do |booking|
-      #   @requests.push(booking)
-      # end
+    current_user.products.each do |product|
+      product.bookings.each do |booking|
+        @requests.push(booking)
+      end
     end
-    @requests = @requests.flatten
-    @request = Booking.where(confirmed: "pending")
-    @booked_requests = Booking.where(confirmed: "true")
+
+    # @pending_requests = Booking.where(Booking.joins(:product).where(user: current_user.id))
+    @pending_requests = @requests.select { |b| b.confirmed == 'true' }
+
+    # My booked requests
+    # @booked_requests = Booking.where(Booking.joins(:product).where(user: current_user.id))
+    @booked_requests = @requests.select { |b| b.confirmed == 'true' }
   end
 
   def destroy
