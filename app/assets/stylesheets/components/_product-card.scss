@@ -18,12 +18,12 @@
 }
 
 .feature-card {
-  height: 380px;
+  height: 430px;
   width: 359px;
   border: 1px solid black;
   border-radius: 6px;
   padding: 24px;
-  margin-right: 50px;
+  margin-right: 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -45,9 +45,47 @@
   border: 1px solid black;
 }
 
+.image-circle-button {
+  width: 167px;
+  height: 167px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+
+.image-large {
+  width: 640px;
+  height: 411px;
+}
+
+.image-medium {
+  width: 555px;
+  height: 411px;
+}
+
 .image-small {
   position: relative;
   margin-bottom: 24px;
+}
+
+.category-card {
+  height: 284px;
+  width: 217px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  margin-right: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-card-description {
+  color: #010101;
+
+  h2 {
+    margin-top: 24px;
+    text-align: center;
+  }
 }
 
 .heart {
@@ -148,4 +186,38 @@ button {
 
 .lends-card-button-width {
   width: 252px;
+}
+
+.testimonial-card {
+  width: 1277px;
+  height: 459px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 24px;
+  justify-content: center;
+  margin-bottom: 20px;
+  :hover {
+    color: #010101;
+    text-decoration: none;
+  }
+
+  h2 {
+    line-height: 30px
+  }
+}
+
+.testimonial-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.column-testimonial-one {
+  float: auto;
+  width: 45%;
+}
+
+.column-testimonial-two {
+  float: auto;
+  width: 45%;
 }

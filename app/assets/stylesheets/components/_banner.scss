@@ -23,8 +23,35 @@
   }
 }
 
+.background-yellow {
+  width: 100vw;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: $background-yellow;
+
+  h1 {
+    padding-bottom: 24px;
+  }
+}
+
+.background-pink {
+  width: 100vw;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  margin-left: 0;
+  margin-right: 0;
+  background-color: $background-pink;
+
+  h1 {
+    padding-bottom: 24px;
+  }
+}
+
 .banner-card-row {
   display: flex;
   justify-content: space-between;
   padding-bottom: 50px;
 }
+
