@@ -37,7 +37,7 @@
                   <% end %>
               </div>
               <!-- card-description -->
-              <%= link_to product_path(product) do %>
+              <%= link_to product_path(product), target: :_blank do %>
                 <div class="product-card-description">
                   <h3><%= product.title.truncate(25) %></h3>
                   <p> <%= product.description.truncate(65) %> </p>
