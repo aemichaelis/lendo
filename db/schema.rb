@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_150201) do
+ActiveRecord::Schema.define(version: 2020_12_02_110558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,25 +80,15 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "address"
-    t.string "category"
-    t.string "accessories"
-    t.string "model"
-    t.string "brand"
-    t.string "delivery_method"
-    t.integer "amount_cents", default: 0, null: false
-    t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
-    t.bigint "booking_id", null: false
+  create_table "notifications", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "actor_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.integer "notifiable_id"
+    t.string "notifiable_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "state"
-    t.index ["booking_id"], name: "index_orders_on_booking_id"
-    t.index ["product_id"], name: "index_orders_on_product_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -106,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
     t.string "description"
     t.string "address"
     t.string "category"
+    t.integer "price"
     t.string "accessories"
     t.string "condition"
     t.string "model"
@@ -114,7 +105,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price_cents", default: 0, null: false
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -152,9 +142,6 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
   add_foreign_key "favourites", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "orders", "bookings"
-  add_foreign_key "orders", "products"
-  add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "products"

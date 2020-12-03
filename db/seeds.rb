@@ -300,6 +300,7 @@ user_second = User.create(
   )
 
 booking = Booking.new(
+
   check_in: "2020-12-06",
   check_out: "2020-12-10",
   confirmed: "pending",
@@ -317,6 +318,7 @@ chatroom1.p2_id = booking.product.user.id
 chatroom1.save
 
 booking = Booking.new(
+
   check_in: "2020-12-13",
   check_out: "2020-12-20",
   confirmed: "pending",

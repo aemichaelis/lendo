@@ -15,9 +15,15 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:new, :create]
   end
   resources :favourites, only: [:index, :destroy]
-  resources :products, only: [:show, :update, :destroy]
+  resources :products, only: [:show, :update]
   resources :chatrooms, only: [:show] do
     resources :messages, only: :create
+  end
+
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
   end
 
   get '/myproducts', to: 'products#myproducts', as: :myproducts
@@ -28,5 +34,8 @@ Rails.application.routes.draw do
   # post '/bookings/save_booking', to: 'bookings#save_booking', as: :save_booking
   get '/messages', to: 'pages#messages', as: :messages
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # for payments
+
 end
 

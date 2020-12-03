@@ -1,6 +1,6 @@
 <div class="con-large">
   <div>
-    <h1>Lends</h1>
+    <h1>Your products</h1>
   </div>
   <div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -12,7 +12,14 @@
       </li>
 
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="booked-tab" data-toggle="tab" href="#booked_products" role="tab" aria-controls="booked" aria-selected="false"><h2> Booked (<%= @booked_requests.count %>)</h2>
+        <a class="nav-link" id="booked-tab" data-toggle="tab" href="#booked_products" role="tab" aria-controls="booked" aria-selected="false">
+          <h2> Booked (<%= @booked_requests.count %>)</h2>
+        </a>
+      </li>
+
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="products-tab" data-toggle="tab" href="#my_products" role="tab" aria-controls="products" aria-selected="false">
+          <h2> All (<%= @products.count %>)</h2>
         </a>
       </li>
 
@@ -26,6 +33,10 @@
 
     <div class="tab-pane fade" id="booked_products" role="tabpanel" aria-labelledby="booked_products-tab">
       <%= render 'shared/my_booked_products' %>
+    </div>
+
+    <div class="tab-pane fade" id="my_products" role="tabpanel" aria-labelledby="my_products-tab">
+      <%= render 'shared/my_products' %>
     </div>
 
   </div>
