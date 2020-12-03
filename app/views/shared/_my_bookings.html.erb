@@ -23,7 +23,7 @@
               </h2>
             </div>
             <div>
-              <button class="booking-card-button-width secondary-status-button">Pending…
+              <button class="booking-card-button-width secondary-status-button"><%= booking.confirmed == "true" ? "Confirmed" : "Pending" %>
               </button>
               <button class="booking-card-button-width secondary-button">
                 <% if booking.chatroom %>
