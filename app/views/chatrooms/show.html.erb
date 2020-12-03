@@ -2,29 +2,38 @@
   <div class="con-small">
     <h1><%= @chatroom.name %></h1>
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-user-id = '<%= current_user.id %>'>
-      <div class="container-messages">
         <% @chatroom.messages.each do |message| %>
-          <div class="<%= message.user == current_user ? 'author' : 'receiver' %>" id="message-<%= message.id %>">
-            <div class="message-avatar">
-              <%= image_tag (message.user.avatar), size: "40x40" %>
+          <% if message.user == current_user %>
+          <!-- Author Message -->
+            <div class="author" id="message-<%= message.id %>">
+              <div class="message-text">
+                <i>
+                  <span> <strong>You</strong> </span> <br>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p><%= message.content %></p>
+              </div>
+              <div class="message-avatar">
+                <%= image_tag (message.user.avatar), size: "50x50", class: "messages-avatar" %>
+              </div>
             </div>
-            <div class="message-text">
-              <i>
-                <strong><span>
-                  <% if message.user == current_user %>
-                    You
-                  <% else %>
-                    <%= message.user.username %>
-                  <% end %>
-
-                </span></strong>
-                <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </i>
-              <p><%= message.content %></p>
+          <% else %>
+            <!-- Reciever message -->
+            <div class="receiver" id="message-<%= message.id %>">
+              <div class="message-avatar">
+                <%= image_tag (message.user.avatar), size: "50x50", class: "messages-avatar" %>
+              </div>
+              <div class="message-text">
+                <i>
+                  <span> <strong><%= message.user.username %></strong> </span> <br>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p> <%= message.content %> </p>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      </div>
+
     </div>
 
     <hr>
