@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
     end
 
     # @pending_requests = Booking.where(Booking.joins(:product).where(user: current_user.id))
-    @pending_requests = @requests.select { |b| b.confirmed == 'true' }
+    @pending_requests = @requests.select { |b| b.confirmed == 'pending' }
 
     # My booked requests
     # @booked_requests = Booking.where(Booking.joins(:product).where(user: current_user.id))
