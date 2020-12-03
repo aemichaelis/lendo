@@ -28,5 +28,4 @@ class Product < ApplicationRecord
   scope :by_brand, ->(brand) { where("brand ILIKE ?", brand) }
   scope :by_category, ->(category) { where("category ILIKE ?", category) }
 
-  monetize :price_cents
 end
