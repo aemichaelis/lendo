@@ -4,7 +4,7 @@
     <%= link_to "Browse Products", products_path, class: 'primary-button'  %>
   <% else %>
     <div class="row bookings-row">
-      <% @bookings.pending.each do |booking| %>
+      <% @pending_bookings.each do |booking| %>
         <div class="col-lg-3 col-sm-5">
           <div class="product-card-bookings bookings">
             <!-- Image -->
