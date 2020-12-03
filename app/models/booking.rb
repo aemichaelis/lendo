@@ -10,7 +10,7 @@ class Booking < ApplicationRecord
 
 
 
-  validates :check_in, :check_out, presence: true, availability: true
+  validates :check_in, :check_out, presence: true # availability: true
   validate :end_date_after_start_date
 
   private

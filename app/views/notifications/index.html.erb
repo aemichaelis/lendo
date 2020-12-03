@@ -47,6 +47,28 @@
               <p> <%= notification.created_at.strftime("%a %b %e at %l:%M%p") %> </p>
             </div>
           </div>
+      <% elsif notification.action == "requested" %>
+        <!-- Card for booking requests -->
+        <%= link_to requests_path, class: "chat-index" do %>
+          <div class="notification">
+            <div class="notification-actor-info">
+              <div class="notification-image">
+                <%= image_tag (notification.actor.avatar), size: "60x60" %>
+              </div>
+              <div class="date">
+                <p class="notification-message"> <%= notification.actor.username %> requested your product: <br> "<%= Chatroom.find(notification.notifiable_id).name %>"" </p>
+              </div>
+            </div>
+        <% end %>
+            <div class="notification-content">
+              <%= simple_form_for(notification) do |f| %>
+                <%= button_tag type: 'submit', class: "mark-as-read" do %>
+                  <i class="far fa-times-circle"></i>
+                <% end %>
+              <% end %>
+              <p> <%= notification.created_at.strftime("%a %b %e at %l:%M%p") %> </p>
+            </div>
+          </div>
       <% end %>
     </div>
   <% end %>

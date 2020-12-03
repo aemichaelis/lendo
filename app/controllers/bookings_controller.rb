@@ -42,6 +42,7 @@ class BookingsController < ApplicationController
       @chatroom.save
       redirect_to bookings_path
       flash[:notice] = "Your booking request was successful!"
+      Notification.create(recipient: @booking.product.user, actor: @booking.user, action: "requested", notifiable: @booking)
     else
       render :new
     end
@@ -50,10 +51,10 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(confirmed: params.dig("booking", "confirmed"))
+    authorize @booking
     @booking.save
     redirect_to requests_path
-    flash[:notice] = "Your booking request was successful!"
-    authorize @booking
+    flash[:notice] = "Your booking status has been changed!"
     Notification.create(recipient: @booking.user, actor: @booking.product.user, action: "changed status", notifiable: @booking)
   end
 
