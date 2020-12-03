@@ -178,7 +178,7 @@ product.photos.attach(io: file, filename: "product_05.png", content_type: 'image
 
 product.save!
 
-product = Product.new(
+product_06 = Product.new(
   title: "PS4 controller",
   description:"Need an extra controller for the next gaming session with your friends?
   Enjoy precise gaming control with the Sony DualShock 4 gaming controller. The
@@ -196,14 +196,14 @@ product = Product.new(
   brand: "Sony",
   delivery_method: "Delivery",
   )
-product.user = user
+product_06.user = user
 
 file = URI.open('https://images.unsplash.com/photo-1585369111972-771555a164c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
-product.photos.attach(io: file, filename: "product_06.png", content_type: 'image/png')
+product_06.photos.attach(io: file, filename: "product_06.png", content_type: 'image/png')
 
-product.save!
+product_06.save!
 
-product = Product.new(
+product_07 = Product.new(
   title: "iPhone 11 with lots of gadgets",
   description:"Apple iPhone 11 Pro Max - 256GB - Midnight Green (Unlocked) A2218
   (CDMA + GSM). Excellent condition, the front and back are great, a few small
@@ -219,12 +219,12 @@ product = Product.new(
   brand: "Apple",
   delivery_method: "Flexible",
   )
-product.user = user
+product_07.user = user
 
 file = URI.open('https://images.unsplash.com/photo-1565536421961-1f165e0c981e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
-product.photos.attach(io: file, filename: "product_07.png", content_type: 'image/png')
+product_07.photos.attach(io: file, filename: "product_07.png", content_type: 'image/png')
 
-product.save!
+product_07.save!
 
 product = Product.new(
   title: "brand new Google phone",
@@ -317,14 +317,14 @@ booking = Booking.new(
   confirmed: "pending",
   status: 0,
   )
-booking.product = product_10
+booking.product = product_06
 booking.user = user_second
 
 booking.save!
 
 review_1 = Review.create(rating: 5, description: "Item as described and good communication. Jessica is an awesome photographer and was able to help me with lots of things. Thanks!")
 review_1.booking = booking
-review_1.product_id = booking.product.id
+review_1.product_id = booking.product
 
 chatroom1 = Chatroom.create(name: booking.product.title)
 chatroom1.booking = booking
@@ -339,7 +339,7 @@ booking = Booking.new(
   confirmed: "pending",
   status: 0,
   )
-booking.product = product_09
+booking.product = product_07
 booking.user = user_second
 
 booking.save!
