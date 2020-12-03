@@ -12,7 +12,7 @@
                 <%= image_tag (notification.actor.avatar), size: "60x60" %>
               </div>
               <div class="date">
-                <p class="notification-message"> <%= notification.actor.username %> sent you a message <br> re: "<%= notification.notifiable.name %>"" </p>
+                <p class="notification-message"> <%= notification.actor.username %> sent you a message: <br>  "<%= notification.notifiable.messages.last.content.truncate(100) %>" </p>
               </div>
             </div>
         <% end %>

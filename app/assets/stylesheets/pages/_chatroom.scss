@@ -2,9 +2,10 @@
   width: 100%;
   border: 1px solid #010101;
   border-radius: 6px;
-  min-height: 500px;
-  height: auto;
+  height: 500px;
+  overflow: scroll;
   justify-content: center;
+  padding: 24px 24px 0px 24px;
 }
 
 .messages-avatar {
