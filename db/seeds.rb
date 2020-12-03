@@ -55,14 +55,17 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1486941976652-a3b72da83237?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
-product.photos.attach(io: file, filename: "product_01.png", content_type: 'image/png')
+file_01 = URI.open('https://images.unsplash.com/photo-1579905595163-07fdce0d4cf7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80')
+file_02 = URI.open('https://static.techspot.com/images2/news/bigimage/2020/06/2020-06-26-image-2.jpg')
+product.photos.attach(io: file_01, filename: "product_01_1.png", content_type: 'image/png')
+product.photos.attach(io: file_02, filename: "product_01_2.png", content_type: 'image/png')
+
 
 product.save!
 
 product = Product.new(
-  title: "immaculate iPhone 11",
-  description:"Fantastic mint condition iPhone 11 pro, this phone has been in a
+  title: "iPhone 11",
+  description:"Fantastic condition iPhone 11 pro. This phone has been in a
   top quality heavy duty protection case and screen guard which is still on the
   screen since the moment it was taken out of the box from new 5 months ago. I've
   used it sporadically but not always as i prefer my Android and I've now decided
@@ -111,8 +114,10 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1543915477-f351326188c7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bmlrb24lMjBkMzQwMCUyMGNhbWVyYXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60')
-product.photos.attach(io: file, filename: "product_03.png", content_type: 'image/png')
+file_01 = URI.open('https://images.unsplash.com/photo-1543915477-f351326188c7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bmlrb24lMjBkMzQwMCUyMGNhbWVyYXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60')
+file_02 = URI.open('https://images.unsplash.com/photo-1600368140372-9052d7ab55a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+product.photos.attach(io: file_01, filename: "product_03_1.png", content_type: 'image/png')
+product.photos.attach(io: file_02, filename: "product_03_2.png", content_type: 'image/png')
 
 product.save!
 
@@ -216,7 +221,7 @@ product = Product.new(
   )
 product.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1603898037225-1bea09c550c0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGlwaG9uZSUyMDExJTIwcHJvJTIwbWF4fGVufDB8fDB8&auto=format&fit=crop&w=900&q=60')
+file = URI.open('https://images.unsplash.com/photo-1565536421961-1f165e0c981e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
 product.photos.attach(io: file, filename: "product_07.png", content_type: 'image/png')
 
 product.save!
@@ -243,7 +248,7 @@ product.photos.attach(io: file, filename: "product_08.png", content_type: 'image
 product.save!
 
 product_09 = Product.new(
-  title: "A classic of analogue SL Cameras",
+  title: "classic analogue SL Camera",
   description:"Camera has been fully serviced & comes with a 6 month Warranty;
   the film winder, shutter timings & light meter have all been checked & are true.
   Nice example of a benchmark Nikon semi automatic with a fast standard lens - clear glass
@@ -263,13 +268,17 @@ product_09 = Product.new(
   )
 product_09.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1487004820913-ccbc3ebb15d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTR8fG5pa29uJTIwZjF8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60')
-product_09.photos.attach(io: file, filename: "product_09.png", content_type: 'image/png')
+file_1 = URI.open('https://images.unsplash.com/photo-1487004820913-ccbc3ebb15d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTR8fG5pa29uJTIwZjF8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60')
+file_2 = URI.open('https://images.unsplash.com/photo-1564177426295-5b1fe9e778f6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+file_3 = URI.open('https://images.unsplash.com/photo-1596972811652-11d30aa10342?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80')
+product_09.photos.attach(io: file_1, filename: "product_09_1.png", content_type: 'image/png')
+product_09.photos.attach(io: file_2, filename: "product_09_2.png", content_type: 'image/png')
+product_09.photos.attach(io: file_3, filename: "product_09_3.png", content_type: 'image/png')
 
 product_09.save!
 
 product_10 = Product.new(
-  title: "mint condition Canon DLSR camera",
+  title: "Canon DLSR camera in good condition",
   description:"Canon EOS 6D with 28-105mm lens and extras for instant start-up photographers.
   Dispatched with Royal Mail 2nd Class. This is a stunning example of Canons great Features,
   please look up full Tech-Info on Canon Website. It's a lovely camera for a good price.
@@ -286,12 +295,14 @@ product_10 = Product.new(
   )
 product_10.user = user
 
-file = URI.open('https://images.unsplash.com/photo-1551194201-5b634bd23931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
-product_10.photos.attach(io: file, filename: "product_10.png", content_type: 'image/png')
+file_1 = URI.open('https://images.unsplash.com/photo-1551194201-5b634bd23931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1525385444278-b7968e7e28dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+product_10.photos.attach(io: file_1, filename: "product_10_1.png", content_type: 'image/png')
+product_10.photos.attach(io: file_2, filename: "product_10_2.png", content_type: 'image/png')
 
 product_10.save!
 
-puts "create bookings..."
+puts "create bookings, chatrooms and reviews..."
 
 user_second = User.create(
   email: "alex@alex.com",
@@ -310,6 +321,10 @@ booking.product = product_10
 booking.user = user_second
 
 booking.save!
+
+review_1 = Review.create(rating: 5, description: "Item as described and good communication. Jessica is an awesome photographer and was able to help me with lots of things. Thanks!")
+review_1.booking = booking
+review_1.product = booking.product
 
 chatroom1 = Chatroom.create(name: booking.product.title)
 chatroom1.booking = booking
