@@ -6,17 +6,19 @@
       <%= link_to "Discover Products", products_path, class: "primary-button banner-button" %>
     </div>
   </div>
+
+
 </div>
 
 <div class="row justify-content-center main-banner background-green">
   <div class="con-large">
-    <h1 class=""con-large">How it works:</h1>
+    <h1>Explore how lending works</h1>
     <div class="banner-card-row">
-      <div class="feature-card col float-left">
+      <div class="feature-card">
 
         <div class="row feature-padding">
         <!-- Image -->
-          <%= image_tag("share_yellow.png", class: "image-circle") %>
+          <%= image_tag("Team.png", class: "image-circle") %>
           <!-- card-description -->
           <div class="product-card-description">
             <h2>Our community</h2>
@@ -24,13 +26,11 @@
           </div>
         </div>
 
-
       </div>
       <div class="feature-card col">
-
         <div class="row feature-padding">
         <!-- Image -->
-          <%= image_tag("save_yellow.png", class: "image-circle", crop: :fill) %>
+          <%= image_tag("Like.png", class: "image-circle", crop: :fill) %>
           <!-- card-description -->
           <div class="product-card-description">
             <h2>Save money</h2>
@@ -40,10 +40,9 @@
 
       </div>
       <div class="feature-card col float-right">
-
       <div class="row feature-padding">
         <!-- Image -->
-          <%= image_tag("grow_yellow.png", class: "image-circle", crop: :fill) %>
+          <%= image_tag("heart.png", class: "image-circle", crop: :fill) %>
           <!-- card-description -->
           <div class="product-card-description">
             <h2>Save the world!</h2>
@@ -57,13 +56,209 @@
 </div>
 
 
+<div class="row justify-content-center main-banner background-yellow">
+  <div class="con-large">
+    <h1>Hot this week</h1>
+    <div class="banner-card-row">
+      <% @products.take(4).each do |product| %>
+        <div class="product-card-row">
+          <div class="row product-card">
+            <!-- Image -->
+            <div class="image image-small">
+              <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+              <!-- Check if user is signed in -->
+                <% if user_signed_in? %>
+                <!-- If signed in see if product is favourited and display accordingly -->
+                  <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
+                    <div class="heart">
+                      <i class="fa fa-heart"></i>
+                    </div>
+                  <% else %>
+                    <%= simple_form_for([product, @favourite]) do |f| %>
+                      <%= button_tag type: 'submit', class: "heart" do %>
+                        <i class="far fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <div class="heart">
+                    <i class="far fa-heart"></i>
+                  </div>
+                <% end %>
+            </div>
+            <!-- card-description -->
+            <%= link_to product_path(product) do %>
+              <div class="product-card-description">
+                <h3><%= product.title.truncate(25) %></h3>
+                <p> <%= product.description.truncate(65) %> </p>
+                <h4><span class="product-card-price"><%= product.price %>€</span> per week</h4>
+
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center main-banner background-green">
+  <div class="con-large">
+    <h1>Be part of the community </h1>
+    <div class="testimonial-card testimonial-card-row row">
+      <div class="column-testimonial-one">
+        <%= image_tag("Testimonial_2.png", class: "image-large") %>
+      </div>
+      <div class="column-testimonial-two">
+        <h2>
+          “With every year, comes a new iPhone. Instead of yearly buying a new one and selling the old one, I just rent from generation to generation. Then I don’t lose any money buying and selling and avoid the extra effort.”
+        </h2>
+        <h2>
+          – Charlie, 24
+        </h2>
+        <p class="button-spacing-two">
+          <%= link_to "Discover Products", products_path, class: "secondary-button-unactive booking-card-button-width" %>
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center main-banner background-pink">
+  <div class="con-large">
+    <h1>Browse popular categories</h1>
+    <div class="banner-card-row">
+
+      <div class="category-card">
+        <div>
+        <!-- Image -->
+          <%= image_tag("Laptop.png", class: "image-circle-button") %>
+          <!-- card-description -->
+          <div class="category-card-description">
+            <h2>Computer<br>& Office</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <div>
+        <!-- Image -->
+          <%= image_tag("Rocket.png", class: "image-circle-button") %>
+          <!-- card-description -->
+          <div class="category-card-description">
+            <h2>Gaming<br>& VR</h2>
+          </div>
+        </div>
+      </div>
+
+     <div class="category-card">
+      <div>
+        <!-- Image -->
+          <%= image_tag("tablet.png", class: "image-circle-button") %>
+          <!-- card-description -->
+          <div class="category-card-description">
+            <h2>Smartphones<br>& Devices</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <div>
+        <!-- Image -->
+          <%= image_tag("VideoCamera.png", class: "image-circle-button") %>
+          <!-- card-description -->
+          <div class="category-card-description">
+            <h2>Cameras<br>& Drones</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <div>
+        <!-- Image -->
+          <%= image_tag("CustomerService.png", class: "image-circle-button") %>
+          <!-- card-description -->
+          <div class="category-card-description">
+            <h2>TV<br>& Audio</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 
+<div class="row justify-content-center main-banner background-yellow">
+  <div class="con-large">
+    <h1>Hot this week</h1>
+    <div class="banner-card-row">
+      <% @products.last(4).each do |product| %>
+        <div class="product-card-row">
+          <div class="row product-card">
+            <!-- Image -->
+            <div class="image image-small">
+              <%= cl_image_tag product.photos[0].key, height: 180, width: 255, crop: :fill %>
+              <!-- Check if user is signed in -->
+                <% if user_signed_in? %>
+                <!-- If signed in see if product is favourited and display accordingly -->
+                  <% if current_user.favourites.find { |favourite| favourite.product_id == product.id } %>
+                    <div class="heart">
+                      <i class="fa fa-heart"></i>
+                    </div>
+                  <% else %>
+                    <%= simple_form_for([product, @favourite]) do |f| %>
+                      <%= button_tag type: 'submit', class: "heart" do %>
+                        <i class="far fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <div class="heart">
+                    <i class="far fa-heart"></i>
+                  </div>
+                <% end %>
+            </div>
+            <!-- card-description -->
+            <%= link_to product_path(product) do %>
+              <div class="product-card-description">
+                <h3><%= product.title.truncate(25) %></h3>
+                <p> <%= product.description.truncate(65) %> </p>
+                <h4><span class="product-card-price"><%= product.price %>€</span> per week</h4>
 
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-
-
-
-
+<div class="row justify-content-center main-banner background-green">
+  <div class="con-large">
+    <h1>
+      From beamers to headphones, people book it all
+    </h1>
+    <div class="testimonial-card testimonial-card-row row">
+      <div class="column-testimonial-one">
+        <h2>
+          “With every year, comes a new iPhone. Instead of yearly buying a new one and selling the old one, I just rent from generation to generation. Then I don’t lose any money buying and selling and avoid the extra effort.”
+        </h2>
+        <h2>
+          – Charlie, 24
+        </h2>
+        <p class="button-spacing-two">
+          <%= link_to "Discover Products", products_path, class: "secondary-button-unactive booking-card-button-width" %>
+        </p>
+      </div>
+      <div class="column-testimonial-two">
+        <%= image_tag("Testimonial_1.png", class: "image-medium") %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
