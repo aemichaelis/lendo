@@ -2,8 +2,11 @@ class BookingsController < ApplicationController
   def index
     # @bookings = current_user.bookings
     @bookings = policy_scope(current_user.bookings)
+    @pending_bookings = @bookings.where(confirmed: "pending")
     @upcoming_bookings = @bookings.where("check_in >= ?", Date.today)
+    @upcoming_bookings = @upcoming_bookings.select { |b| b.confirmed == "true" }
     @previous_bookings = @bookings.where("check_out <= ?", Date.today)
+    @previous_bookings = @previous_bookings.select { |b| b.confirmed == "true" }
   end
 
   def new
