@@ -1,6 +1,6 @@
 <body id="show-page">
   <div class="con-small row justify-content-center">
-    <div>
+    <div class="picture-big">
       <h1 class="product-title"><%= @product.title %></h1>
       <p class="product-location"><i class="fas fa-map-marker-alt"></i> <% @product.address.split.last(2).each do |address| %>
         <%= address %>
@@ -11,7 +11,7 @@
           <div class="carousel-inner">
             <% @product.photos.each_with_index do |photo, index| %>
             <div class="carousel-item card-images <%= "active" if index==0 %> ">
-              <%= cl_image_tag photo.key, height: 600, width: 1168, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 600, width: 1300, crop: :fill %>
               <% if user_signed_in? %>
                 <% if current_user.favourites.find { |favourite| favourite.product_id == @product.id } %>
                   <div class="heart">
