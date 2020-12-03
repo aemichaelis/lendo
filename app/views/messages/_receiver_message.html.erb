@@ -1,10 +1,11 @@
-<div class="receiver">
+<div class="receiver" id="message-<%= message.id %>">
   <div class="message-avatar">
     <%= image_tag (message.user.avatar), size: "50x50", class: "messages-avatar" %>
   </div>
-  <i>
-    <span><%= message.user.username %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <p> <strong><%= message.content %></strong> </p>
-</div>
+  <div class="message-text">
+    <i>
+      <span> <strong><%= message.user.username %></strong> </span> <br>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </i>
+    <p> <%= message.content %> </p>
+  </div>
