@@ -162,7 +162,7 @@ product = Product.new(
   features an 8 MP iSight camera, allowing you to capture sharp and detailed
   photographs. In addition, this tablet supports the Smart Keyboard and the
   Apple Pencil.",
-  address: "Eisenbahnstraße 42, 10997 Berlin",
+  address: "Ständehausstraße 1, 40217 Düsseldorf",
   category: "Phones & Mobile Tech",
   price: "19",
   accessories: "128 GB Capacity, Apple Pencil and charger included",
@@ -302,12 +302,154 @@ product_10.photos.attach(io: file_2, filename: "product_10_2.png", content_type:
 
 product_10.save!
 
+product_11 = Product.new(
+  title: "Vintage Minolta XG-M",
+  description:"You are viewing a Vintage Minolta XG-M 35mm SLR Film Camera. Comes with a
+  RMC Tokina 28-70mm 1:3.5-4.5 Lens. There is no film included with this camera!
+  Firstly, this camera comes in worn condition with areas of wear.
+  The black material to the exterior of the camera has turned grey in areas due to age and marks (as shown in photo).
+  There is some marks and sticker residue to the bottom.
+  The view finder has some small dirt and small dust marks but the lens adjusts fine.
+  Please check photos for a better indication of condition!
+  This is a GREAT camera!
+  If you have any questions feel free to ask.",
+  address: "Venloer Str. 760, 50827 Köln",
+  category: "Cameras",
+  price: "7",
+  accessories: "35 mm lens, Manual",
+  condition: "Minor Cosmetic Faults",
+  model: "XG-M",
+  brand: "Minolta",
+  delivery_method: "Delivery",
+  )
+product_11.user = user
+
+file_1 = URI.open('https://images.unsplash.com/photo-1542124292-60272943a355?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1951&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1542124061437-b227f39e39a9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60')
+product_11.photos.attach(io: file_1, filename: "product_11_1.png", content_type: 'image/png')
+product_11.photos.attach(io: file_2, filename: "product_11_2.png", content_type: 'image/png')
+
+product_11.save!
+
+product_12 = Product.new(
+  title: "Sony Alpha Digital Mirrorless Camera",
+  description:"My current fave in my personal collection, and although I prefer using this even over my bulky
+  but beautiful Canon 5d4, the time to downsize has come, and i'd love to see this kit go to another home
+  where its infamous low light capabilities (best in price range by quite some margin) are loved and appreciated!
+  Condition is very good. No artifacts in lenses, and all items in exceptional working order.
+  Happysnaps guaranteed!",
+  address: "Schwarzburger Str. 4, 51103 Köln",
+  category: "Cameras",
+  price: "15",
+  accessories: "comes with 16-50mm official Sony lens, 4 extra batteries, charger, data transfer cable, microfiber cloth and lens wipes",
+  condition: "Normal Wear",
+  model: "A7 III",
+  brand: "Sony",
+  delivery_method: "Flexible",
+  )
+product_12.user = user
+
+file_1 = URI.open('https://images.unsplash.com/photo-1570355661836-766cd1ae366c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1581423793081-2c07e7a0b92e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+product_12.photos.attach(io: file_1, filename: "product_12_1.png", content_type: 'image/png')
+product_12.photos.attach(io: file_2, filename: "product_12_2.png", content_type: 'image/png')
+
+product_12.save!
+
+product_13 = Product.new(
+  title: "Fujifilm instax mini 8 instant film camera",
+  description:"Fujifilm instax mini 8 instant film camera White with Carry Case.
+  Capture all your special moments with the Fujifilm Mini 8 Instant film camera.
+  The Instax mini Instant Color Film film camera with its Auto focus mode enables
+  you to get the desired photo composition right.
+  With Flash, Film not included.",
+  address: "Hardenbergstraße 33, 10623 Berlin",
+  category: "Cameras",
+  price: "9",
+  accessories: "Comes with carry case",
+  condition: "Like New",
+  model: "instax mini 8",
+  brand: "Fujifilm",
+  delivery_method: "Pick up",
+  )
+product_13.user = user
+
+file_1 = URI.open('https://images.unsplash.com/photo-1600200952161-dea190aad54c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1500051638674-ff996a0ec29e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1992&q=80')
+product_13.photos.attach(io: file_1, filename: "product_13_1.png", content_type: 'image/png')
+product_13.photos.attach(io: file_2, filename: "product_13_2.png", content_type: 'image/png')
+
+product_13.save!
+
+
+product_14 = Product.new(
+  title: "iPad silver",
+  description:"Apple iPad Pro 2020 11” 128GB 4g/wifi. Lovely condition, always been in a case.
+  Couple of tiny little scuffs on the screen, barely noticeable to be honest.
+  I only mention to be completely transparent. Really nice condition. Comes with case too.
+  Purchased from Vodafone 6 months ago.",
+  address: "Berger Str. 1, 40213 Düsseldorf",
+  category: "Phones & Mobile Tech",
+  price: "14",
+  accessories: "charger, Apple Pencil (Gen 1) and Smart Case included",
+  condition: "Normal Wear",
+  model: "iPad 2020",
+  brand: "Apple",
+  delivery_method: "Pick up",
+  )
+product_14.user = user
+
+file_1 = URI.open('https://images.unsplash.com/photo-1539883305165-f691affc6c54?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80')
+file_2 = URI.open('https://images.unsplash.com/photo-1525101238777-8878781fc06d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80')
+product_14.photos.attach(io: file_1, filename: "product_14_1.png", content_type: 'image/png')
+product_14.photos.attach(io: file_2, filename: "product_14_2.png", content_type: 'image/png')
+
+product_14.save!
+
+product_15 = Product.new(
+  title: "Samsung Serif TV 43 inches",
+  description:"The Samsung SERIF TV includes all of the features that you desire from a television:
+  a 4K UHD resolution which provides four times the resolution of full HD TVs and HDR Premium technology
+  to enhance the picture’s color and brightness while creating a more natural, realistic image.
+  A true collaboration with acclaimed Parisian design duo Ronan and Erwan Bouroullec,
+  the Samsung SERIF TV redefines the television experience.
+  As a Smart TV, it also includes a quad-core processor for a fluid browsing experience and seamless
+  switching between live TV, apps and streaming content.",
+  address: "Osdorfer Landstraße 1a, 22607 Hamburg",
+  category: "Home",
+  price: "21",
+  accessories: "icluding stand, remote and all cables that are needed",
+  condition: "Like New",
+  model: "Serif 2.0",
+  brand: "Samsung",
+  delivery_method: "Flexible",
+  )
+product_15.user = user
+
+file_1 = URI.open('https://shop.fux-ag.ch/images/product_images/original_images/Samsung-Serif-02-Fux-AG_863_0.jpg')
+product_15.photos.attach(io: file_1, filename: "product_15_1.png", content_type: 'image/png')
+
+product_15.save!
+
+
 puts "create bookings, chatrooms and reviews..."
 
 user_second = User.create(
   email: "alex@alex.com",
   password: "testing",
   username: "Alex"
+  )
+
+user_3 = User.create(
+  email: "santi@lewagon.com",
+  password: "testing",
+  username: "Santi"
+  )
+
+user_4 = User.create(
+  email: "sarah@lewagon.com",
+  password: "testing",
+  username: "Sarah"
   )
 
 booking = Booking.new(
@@ -322,9 +464,11 @@ booking.user = user_second
 
 booking.save!
 
-review_1 = Review.create(rating: 5, description: "Item as described and good communication. Jessica is an awesome photographer and was able to help me with lots of things. Thanks!")
+review_1 = Review.new(rating: 5, description: "Item as described and good communication. Jessica is an awesome photographer and was able to help me with lots of things. Thanks!")
 review_1.booking = booking
-review_1.product_id = booking.product
+review_1.product_id = booking.product_id
+
+review_1.save!
 
 chatroom1 = Chatroom.create(name: booking.product.title)
 chatroom1.booking = booking
@@ -349,6 +493,45 @@ chatroom2.booking = booking
 chatroom2.p1_id = booking.user.id
 chatroom2.p2_id = booking.product.user.id
 chatroom2.save
+
+booking = Booking.new(
+
+  check_in: "2020-10-01",
+  check_out: "2020-11-01",
+  confirmed: "previous",
+  status: 2,
+  )
+booking.product = product_13
+booking.user = user_3
+
+booking.save!
+
+review_2 = Review.new(rating: 4, description: "It has a certain retrotouch that you consciously choose with this type of camera. Completely detached from the megapixel madness you can shoot beautiful snapshots here very relaxed and can stick them directly or press your loved one in the hand. A beautiful resurrected photo experience. ")
+review_2.booking = booking
+review_2.product_id = booking.product_id
+
+review_2.save!
+
+
+booking = Booking.new(
+
+  check_in: "2020-08-13",
+  check_out: "2020-08-30",
+  confirmed: "previous",
+  status: 2,
+  )
+booking.product = product_13
+booking.user = user_4
+
+booking.save!
+
+review_3 = Review.new(rating: 5, description: "Communication with Alex was easy and nice. The mini is excellent workmanship, sits well in the hand and generally makes a good impression. Shoot
+pictures with this camera is very easy and with the included lens you can also take sharp pictures in close range.")
+review_3.booking = booking
+review_3.product_id = booking.product_id
+
+review_3.save!
+
 
 
 puts "finished"
