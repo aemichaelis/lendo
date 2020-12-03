@@ -324,7 +324,7 @@ booking.save!
 
 review_1 = Review.create(rating: 5, description: "Item as described and good communication. Jessica is an awesome photographer and was able to help me with lots of things. Thanks!")
 review_1.booking = booking
-review_1.product = booking.product
+review_1.product_id = booking.product.id
 
 chatroom1 = Chatroom.create(name: booking.product.title)
 chatroom1.booking = booking
