@@ -18,5 +18,6 @@ class PagesController < ApplicationController
 
   def messages
     @chatrooms = Chatroom.where(p1_id: current_user.id) + Chatroom.where(p2_id: current_user.id)
+    # @chatrooms = @chatrooms.reject { |chatroom| chatroom.messages.empty? }
   end
 end
