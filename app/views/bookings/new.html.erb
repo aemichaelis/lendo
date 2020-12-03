@@ -1,13 +1,15 @@
-<div class="con-large">
-  <div class="container booking-form">
+<div class="con-small">
+  <div class="container booking-form error">
     <div class="booking-info">
       <h1> Please confirm you dates </h1>
         <p> The <strong>start-date</strong> cannot be before the <strong>end-date</strong><p>
-    <div class="form-wrapper">
+      <div class="form-wrapper">
       <%= simple_form_for([@product, @booking]) do |f| %>
         <%= f.input :check_in, placeholder: "Add check in dates", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.input :check_out, placeholder: "Add check out dates", label:false, as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.button :submit, "Reserve", :name => "commit", class: "btn btn-primary form-control submit" %>
       <% end %>
+      </div>
     </div>
+  </div>
 </div>
