@@ -73,7 +73,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     authorize @product
     @product.destroy
-    redirect_to myproducts_path
+    redirect_to requests_path
   end
 
   private

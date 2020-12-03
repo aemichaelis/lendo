@@ -80,6 +80,20 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "notifications", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "actor_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.integer "notifiable_id"
+    t.string "notifiable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+>>>>>>> 63cf2d3a1ae7d793afd175072c2ba31cdef6a219
   create_table "orders", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -117,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_150201) do
     t.integer "price_cents", default: 0, null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 

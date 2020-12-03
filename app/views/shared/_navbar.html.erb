@@ -3,7 +3,7 @@
     <%= image_tag "logo.png", class: "navbar-image" %>
     <% end %>
 
-  <div class="row justify-content-center bg-blue">
+  <div class="row justify-content-center">
     <%= render 'shared/searchform' %>
   </div>
 
@@ -16,8 +16,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+
+      <% unless current_user.notifications.unread.empty? %>
+        <span class="notifications-count"><%= current_user.notifications.unread.count %> </span> <%= link_to notifications_path, class: "notifications-bell" do %><i class="far fa-bell"></i><% end %>
+      <% end %>
+
+
         <li class="dropdown mr-3 pt-2">
           <i class="fas fa-bars" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+
           <div class="dropdown-menu dropdown-menu-right dropdown-card" aria-labelledby="navbarDropdown">
               <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Favourites", favourites_path, class: "dropdown-item" %>
@@ -37,7 +44,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "other-button-unactive" %>
+          <%= link_to "Login", new_user_session_path, class: "other-button-unactive button-spacing" %>
         </li>
         <li class="nav-item">
           <%= link_to "Register", href="/users/sign_up", class: "secondary-button-unactive" %>
