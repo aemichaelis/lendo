@@ -11,7 +11,7 @@
           <div class="carousel-inner">
             <% @product.photos.each_with_index do |photo, index| %>
             <div class="carousel-item card-images <%= "active" if index==0 %> ">
-              <%= cl_image_tag photo.key, height: 600, width: 1300, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 809, width: 1300, crop: :fill %>
               <% if user_signed_in? %>
                 <% if current_user.favourites.find { |favourite| favourite.product_id == @product.id } %>
                   <div class="heart">
