@@ -145,4 +145,27 @@
   margin-top: 24px;
 }
 
+#delete-button {
+  text-decoration: none;
+  color: $secondary-black;
+  background-color: transparent;
+  border: 1px solid $secondary-black;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  height: 35px;
+  font-weight: 600;
 
+  &:hover {
+    background-color: $secondary-black;
+    color: white;
+    text-decoration: none;
+  }
+
+  a {
+    line-height: 18px;
+  }
+}

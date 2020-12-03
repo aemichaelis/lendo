@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     if params[:commit] == "Reserve"
       if params[:booking][:check_in].blank? || params[:booking][:check_out].blank?
         redirect_to product_path(@product)
-        flash[:notice] = "Oops! Please enter a valid date"
+        flash[:notice] = "Oops! Please enter valid dates"
       else
         redirect_to confirm_path(product_id: params[:product_id], booking: booking_params)
       end
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
       @chatroom.p2_id = @booking.product.user.id
       @chatroom.save
       redirect_to bookings_path
-      flash[:notice] = "Your booking request was successful!"
+      flash[:notice] = "Great! Your booking request was successful!"
       Notification.create(recipient: @booking.product.user, actor: @booking.user, action: "requested", notifiable: @booking)
     else
       render :new
@@ -57,7 +57,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.save
     redirect_to requests_path
-    flash[:notice] = "Your booking status has been changed!"
+    flash[:notice] = "Great! You have accepted the request"
     Notification.create(recipient: @booking.user, actor: @booking.product.user, action: "changed status", notifiable: @booking)
   end
 

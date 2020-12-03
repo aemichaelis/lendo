@@ -19,7 +19,7 @@
                   <h4><span class="product-card-price">€ <%= favourite.product.price %></span> per Month</h4>
                 </div>
                 <div class="product-card-buttons" id="favorite-button">
-                  <%= link_to "Remove", favourite_path(favourite), method: :delete, data: { confirm: "Are you sure?" }, class: "form-control secondary-button" %>
+                  <%= link_to "Remove", favourite_path(favourite), method: :delete, data: { confirm: "Are you sure?" }, class: "form-control secondary-button", id: "delete-button" %>
                 </div>
             </div>
           </div>
