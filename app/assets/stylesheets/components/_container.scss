@@ -15,7 +15,6 @@
   padding-left: 0px;
   width: 100vw;
   display: flex;
-  justify-content: space-around;
 
 }
 
@@ -28,6 +27,8 @@
 
 .product-card-row {
   padding: 0px 24px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sidebar {
