@@ -56,6 +56,8 @@
 }
 
 .form-control {
+  display: flex;
+  justify-content: center;
   background-color: transparent;
   margin-bottom: 40px;
 }
