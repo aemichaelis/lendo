@@ -26,7 +26,13 @@ user = User.create(
   username: "Paul",
   password: "testing"
   )
-user.avatar.attach(
+
+user_5 = User.create(
+  email: "timmy@gmail.com",
+  password: "testing",
+  username: "Timmy"
+  )
+user_5.avatar.attach(
   io: File.open(
     Rails.root.join(
       'app', 'assets', 'images', 'little_paul.jpeg'
@@ -34,6 +40,7 @@ user.avatar.attach(
   ), filename: 'little_paul.jpeg',
   content_type: 'image/png'
 )
+
 
 product = Product.new(
   title: "almost new iPhone 8",
@@ -196,7 +203,7 @@ product_06 = Product.new(
   brand: "Sony",
   delivery_method: "Delivery",
   )
-product_06.user = user
+product_06.user = user_5
 
 file = URI.open('https://images.unsplash.com/photo-1585369111972-771555a164c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
 product_06.photos.attach(io: file, filename: "product_06.png", content_type: 'image/png')
@@ -459,7 +466,7 @@ booking = Booking.new(
   confirmed: "pending",
   status: 0,
   )
-booking.product = product_06
+booking.product = product_10
 booking.user = user_second
 
 booking.save!
