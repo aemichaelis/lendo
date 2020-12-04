@@ -23,11 +23,11 @@
               </h2>
             </div>
             <div>
-              <button class="booking-card-button-width secondary-status-button"><%= booking.confirmed == "true" ? "Confirmed" : "Pending" %>
+              <button class="booking-card-button-width secondary-status-button link-color"><%= booking.confirmed == "true" ? "Confirmed" : "Pending…" %>
               </button>
               <button class="booking-card-button-width secondary-button">
                 <% if booking.chatroom %>
-                  <%= link_to 'Message', chatroom_path(booking.chatroom.id)  %>
+                  <%= link_to 'Send message', chatroom_path(booking.chatroom.id), class:"link-color"  %>
                 <% else %>
                   Message
                 <% end %>

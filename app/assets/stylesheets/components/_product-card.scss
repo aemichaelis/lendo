@@ -56,11 +56,13 @@
 .image-large-testimonials {
   width: 640px;
   height: 411px;
+  border-radius: 6px;
 }
 
-.image-medium {
+.image-medium-testimonial {
   width: 555px;
   height: 411px;
+  border-radius: 6px;
 }
 
 .image-small {
@@ -157,7 +159,7 @@ button {
 
 
 .product-card-bookings {
-  height: 555px;
+  height: 563px;
   width: 303px;
   border: 1px solid black;
   border-radius: 6px;
@@ -221,3 +223,4 @@ button {
   float: auto;
   width: 45%;
 }
+

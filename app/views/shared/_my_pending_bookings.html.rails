@@ -23,7 +23,7 @@
               </h2>
             </div>
             <div>
-              <button class="booking-card-button-width secondary-status-button">Pending…
+              <button class="booking-card-button-width secondary-status-button form-control">Pending…
               </button>
               <button class="booking-card-button-width secondary-button"> Send message Link!
               </button>
