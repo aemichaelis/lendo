@@ -1,4 +1,5 @@
 .primary-button {
+  line-height: 19px;
   color: white;
   background-color: $primary-color;
   align-items: center;
@@ -22,6 +23,7 @@
 }
 
 .primary-button-large {
+  line-height: 19px;
   color: white;
   background-color: $primary-color;
   align-items: center;
@@ -45,6 +47,7 @@
 }
 
 .secondary-button {
+  line-height: 19px;
   text-decoration: none;
   color: $secondary-black;
   background-color: white;
@@ -52,7 +55,6 @@
   padding: 8px 16px;
   box-sizing: border-box;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11);
-  text-align: center;
   font-size: 16px;
   border-radius: 6px;
   height: 35px;
@@ -64,10 +66,20 @@
     color: $secondary-black;
     text-decoration: none;
   }
+
+  a:hover {
+    color: $secondary-black;
+    text-decoration: none;
+  }
+
+  p {
+    line-height: 19px;
+  }
 }
 
 
 .secondary-button-unactive {
+  line-height: 19px;
   text-decoration: none;
   color: $secondary-black;
   background-color: transparent;
@@ -86,9 +98,14 @@
     color: white;
     text-decoration: none;
   }
+
+  p {
+    line-height: 19px;
+  }
 }
 
 .secondary-status-button {
+  line-height: 19px;
   text-decoration: none;
   color: $secondary-black;
   background-color: transparent;
@@ -104,6 +121,7 @@
 }
 
 .other-button-unactive {
+  line-height: 19px;
   text-decoration: none;
   color: $secondary-black;
   background-color: transparent;
@@ -123,6 +141,11 @@
     :hover {
       color: $secondary-black;
     }
+  }
+
+  a:hover {
+    color: $secondary-black;
+    text-decoration: none;
   }
 
   &:hover {
@@ -167,5 +190,19 @@
 
   a {
     line-height: 18px;
+  }
+}
+
+.link-color {
+  color: $secondary-black;
+}
+
+.link-color-two {
+  color: $secondary-black;
+
+  &:hover {
+    background-color: $secondary-black;
+    color: white;
+    text-decoration: none;
   }
 }

@@ -25,9 +25,9 @@
             <div>
               <button class="booking-card-button-width secondary-button-unactive">
                 <% if booking.chatroom %>
-                  <%= link_to 'Message', chatroom_path(booking.chatroom.id)  %>
+                  <%= link_to 'Send message', chatroom_path(booking.chatroom.id), class: "booking-card-button-width link-color-two"  %>
                 <% else %>
-                  Message
+                  Send message
                 <% end %>
               </button>
               <button class="booking-card-button-width other-button-unactive"> <%= link_to "View", product_path(booking.product) %>
