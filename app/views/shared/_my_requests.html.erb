@@ -18,7 +18,7 @@
               <p>
                 <%= request.product.description.truncate(70) %>
               </p>
-              <h2 id="dates"><%= request.check_in %> – <%= request.check_out %>
+              <h2 id="dates"><%= request.check_in.strftime("%d.%m.%Y") %> – <%= request.check_out.strftime("%d.%m.%Y") %>
               </h2>
             </div>
             <div>
